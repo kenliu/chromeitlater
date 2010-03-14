@@ -1,50 +1,45 @@
 <html>
-<head><title>My Test Extension Options</title></head>
+<head><title>ChromeItLater Options</title>
+
 <script type="text/javascript">
 
 // Saves options to localStorage.
-function save_options() {
-  var select = document.getElementById("color");
-  var color = select.children[select.selectedIndex].value;
-  localStorage["favorite_color"] = color;
+function saveOptions() {
+	//TODO trim?
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
 
-  // Update status to let user know options were saved.
-  var status = document.getElementById("status");
-  status.innerHTML = "Options Saved.";
-  setTimeout(function() {
-    status.innerHTML = "";
-  }, 750);
+    if (!username || !password) return;
+
+	localStorage["username"] = username;
+	localStorage["password"] = password;
+	
+	console.debug('saved: ' + username + '/' + password);
+
+	// Update status to let user know options were saved.
+	var status = document.getElementById("status");
+	status.innerHTML = "Options Saved.";
 }
 
 // Restores select box state to saved value from localStorage.
-function restore_options() {
-  var favorite = localStorage["favorite_color"];
-  if (!favorite) {
-    return;
-  }
-  var select = document.getElementById("color");
-  for (var i = 0; i < select.children.length; i++) {
-    var child = select.children[i];
-    if (child.value == favorite) {
-      child.selected = "true";
-      break;
-    }
-  }
+function restoreOptions() {
+	var username = localStorage["username"];
+	var password = localStorage["password"];
+	if (!username || !password) {
+		return;
+	}
+	document.getElementById("username").value = username;
+	document.getElementById("password").value = password;
 }
 
 </script>
+</head>
 
-<body onload="restore_options()">
-
-Favorite Color:
-<select id="color">
- <option value="red">red</option>
- <option value="green">green</option>
- <option value="blue">blue</option>
- <option value="yellow">yellow</option>
-</select>
-
-<br>
-<button onclick="save_options()">Save</button>
+<body onload="restoreOptions()">  
+	<h1 id="chromeitlater_options">ChromeItLater Options</h1>
+	<label for="username">User Name</label><input type="text" name="username" value="" id="username"><br/>
+	<label for="password">Password</label><input type="password" name="password" value="" id="password"><br/>
+	<button onclick="saveOptions()">Save</button>
+	<div id="status"></div>
 </body>
 </html>
