@@ -1,3 +1,4 @@
+<!-- Copyright (c) 2010 Kenneth Liu. All rights reserved. -->
 <html>
 <head>
 <script>
@@ -8,18 +9,13 @@ function dummy(tab){
 	chrome.browserAction.setBadgeText({text: time})   	
 }
 
-
-
 function init(){
 	chrome.browserAction.onClicked.addListener(dummy)
 }
 
-
-
-
 </script>               
-
 </head>
+
 <body onload="init()">
 </body>
 </html>
