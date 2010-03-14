@@ -1,1 +1,1 @@
-Google Chrome Extension for ReadItLater
+Google Chrome Extension for ReadItLater (http://www.readitlaterlist.com)
