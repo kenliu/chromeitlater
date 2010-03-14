@@ -8,6 +8,7 @@
   "options_page": "options.html",
   "background_page": "background.html",
   "permissions": [
+	"tabs",
     "https://readitlaterlist.com/"
   ]
 }

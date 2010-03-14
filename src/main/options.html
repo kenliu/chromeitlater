@@ -5,33 +5,31 @@
 
 <script type="text/javascript">
 
-const USERNAME_KEY = "username"
-const PASSWORD_KEY = "password"
+var USERNAME_KEY = "username";
+var PASSWORD_KEY = "password";
 
-// Saves options to localStorage.
 function saveOptions() {
-	//TODO trim?
-	var username = document.getElementById(USERNAME_KEY).value
-	var password = document.getElementById(PASSWORD_KEY).value
+	//TODO trim before saving?
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
 
-	if (!username || !password) return
+	if (!username || !password) return;
 
-	localStorage["username"] = username
-	localStorage["password"] = password
+	localStorage[USERNAME_KEY] = username;
+	localStorage[PASSWORD_KEY] = password;
 
-	console.debug('saved: ' + username + '/' + password)
+	console.debug('saved: ' + username + '/' + password);
 
-	var status = document.getElementById("status")
-	status.innerHTML = "Options Saved."
+	var status = document.getElementById("status");
+	status.innerHTML = "Options Saved.";
 }
 
-// Restores select box state to saved value from localStorage.
 function restoreOptions() {
-	var username = localStorage[USERNAME_KEY]
-	var password = localStorage[PASSWORD_KEY]
-	if (!username || !password) return
-	document.getElementById("username").value = username
-	document.getElementById("password").value = password
+	var username = localStorage[USERNAME_KEY];
+	var password = localStorage[PASSWORD_KEY];
+	if (!username || !password) return;
+	document.getElementById(USERNAME_KEY).value = username;
+	document.getElementById(PASSWORD_KEY).value = password;
 }
 
 </script>
@@ -39,11 +37,14 @@ function restoreOptions() {
 
 <body onload="restoreOptions()">  
 	<h1 id="chromeitlater_options">ChromeItLater Options</h1>
-	<label for="username">User Name</label><input type="text" name="username" value="" id="username"><br/>
-	<label for="password">Password</label><input type="password" name="password" value="" id="password"><br/>
+	<label for="username">User Name</label>
+	<input type="text" name="username" value="" id="username"><br/>
+	
+	<label for="password">Password</label>
+	<input type="password" name="password" value="" id="password"><br/>
 
-	//TODO add way to check password?
-	//TODO disable save button if options unchanged?
+	<!-- TODO add way to check password? -->
+	<!-- TODO disable save button if options unchanged? -->
 	<button onclick="saveOptions()">Save</button>
 	<div id="status"></div>
 </body>

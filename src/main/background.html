@@ -1,19 +1,23 @@
 <!-- Copyright (c) 2010 Kenneth Liu. All rights reserved. -->
 <html>
 <head>
-<script>
+	<script src="readitlater-client.js"></script> 
+	<script>
+	
+	function addTab() {
+		//authenticateUser(localStorage.username, localStorage.password);
+		chrome.tabs.getSelected(null, 
+			function(tab) { 
+				console.log(tab)
+				add(localStorage.username, localStorage.password, tab.url, encodeURI(tab.title)); 
+		})
+	}
 
-function dummy(tab){
-	var d = new Date()                                 
-	var time = d.getMinutes() + ':' + d.getSeconds()
-	chrome.browserAction.setBadgeText({text: time})   	
-}
+	function init(){
+		chrome.browserAction.onClicked.addListener(addTab);
+	}
 
-function init(){
-	chrome.browserAction.onClicked.addListener(dummy)
-}
-
-</script>               
+	</script>               
 </head>
 
 <body onload="init()">
