@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+          
+var blah = ''
+
+function dummy(tab){
+	var d = new Date()                                 
+	var time = d.getMinutes() + ':' + d.getSeconds()
+	chrome.browserAction.setBadgeText({text: time})   	
+}
+
+
+
+function init(){
+	chrome.browserAction.onClicked.addListener(dummy)
+}
+
+
+
+
+</script>               
+
+</head>
+<body onload="init()">
+</body>
+</html>
