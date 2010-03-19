@@ -2,7 +2,27 @@
 <head>
 	<script src="readitlater-client.js"></script> 
 	<script type="text/javascript" charset="utf-8">
-	function populateForm(){
+	
+	function loaded() {
+		if (localStorage.add_instantly === 'true') {
+ 			chrome.tabs.getSelected(null, 
+				function(tab) { 
+					console.debug(tab)
+					add(localStorage.username, localStorage.password, tab.url, encodeURI(tab.title));
+					
+					if(localStorage.close_tab === 'true'){
+						chrome.tabs.remove(tab.id, function(){
+							console.debug("closed tab" + tab.url);
+						});                                  
+					}
+			});
+			window.close(); //close popup   		
+		} else {
+			populateForm();
+		}
+	}
+	
+	function populateForm() {
 		chrome.tabs.getSelected(null, 
 			function(tab) { 
 				console.debug(tab);
@@ -14,23 +34,34 @@
 
 	function clicked() {
 		var urlval = url.value;
-        var titleval = title.value;
+		var titleval = title.value;
 		container.innerHTML = "Submitting URL";
 		
-		add(localStorage.username, localStorage.password, urlval, encodeURI(titleval),
-			function (status){
-				if (status = '200') {
-					container.innerHTML = "Add Successful";
-				} else {
-					container.innerHTML = "Add Failed";
-				}
+		//TODO this is starting to look like lisp!
+		chrome.tabs.getSelected(null, 
+			function(tab) {
+				add(localStorage.username, localStorage.password, urlval, encodeURI(titleval),
+					function (status) {
+						if (status = '200') {
+							container.innerHTML = "Add Successful";
+							if(localStorage.close_tab === 'true'){
+								chrome.tabs.remove(tab.id, 
+									function() { console.debug("closed tab" + tab.url); }
+							  	);                                  
+							}
+						} 
+					   	else {
+							container.innerHTML = "Add Failed";
+						}
+		   			}
+				);
 			}
 		);
 	}
 	</script>
 </head>           
 
-<body id="popup" onload="populateForm()">
+<body id="popup" onload="loaded()">
 	<div id="container">
 		<label for="title">Title</label><input type="text" name="title" value="" id="title">
 		<label for="url">URL</label><input type="text" name="url" value="" id="url">

@@ -3,9 +3,10 @@
 <head>
 	<script src="readitlater-client.js"></script> 
 	<script>
-	
+
+		//TODO this is currently never invoked because of the popup
+		//the Extensions API will provide a workaround for this	
 	function addTab() {
-		//authenticateUser(localStorage.username, localStorage.password);
 		chrome.tabs.getSelected(null, 
 			function(tab) { 
 				console.debug(tab)

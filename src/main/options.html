@@ -8,6 +8,7 @@
 var USERNAME_KEY = "username";
 var PASSWORD_KEY = "password";
 var CLOSE_TAB_KEY = "close_tab";
+var ADD_INSTANTLY = "add_instantly";
 
 function saveOptions() {
 	//TODO trim before saving?	
@@ -16,7 +17,8 @@ function saveOptions() {
 
 	localStorage[USERNAME_KEY] = username.value;
 	localStorage[PASSWORD_KEY] = password.value;
-	localStorage[CLOSE_TAB_KEY] = close_tab_after_add.checked;
+	localStorage[CLOSE_TAB_KEY] = close_tab_when_added.checked;
+	localStorage[ADD_INSTANTLY] = add_instantly.checked;
 
 	console.debug('saved: ' + username.value + '/' + password.value);
 
@@ -30,7 +32,8 @@ function restoreOptions() {
 	if (!storedUsername || !storedPassword) return;
 	username.value = storedUsername;
 	password.value = storedPassword;
-	close_tab_after_add.checked = localStorage[CLOSE_TAB_KEY];
+	close_tab_when_added.checked = localStorage[CLOSE_TAB_KEY] === 'true' ? true : false;
+	add_instantly.checked = localStorage[ADD_INSTANTLY] === 'true' ? true : false;
 }
 
 </script>
@@ -38,13 +41,16 @@ function restoreOptions() {
 
 <body onload="restoreOptions()">  
 	<h1 id="chromeitlater_options">ChromeItLater Options</h1>
-	<label for="username">User Name</label>
+	<label for="username">User name</label>
 	<input type="text" name="username" value="" id="username"><br/>
 	
 	<label for="password">Password</label>
 	<input type="password" name="password" value="" id="password"><br/>
 	
-	<label for="close_tab_after_add">Close Tab After Add</label><input type="checkbox" name="close_tab_after_add" value="" id="close_tab_after_add">
+	<p/>                                                           
+	<label for="add_instantly">Add instantly</label><input type="checkbox" name="add_instantly" value="" id="add_instantly"><br/>
+	
+	<label for="close_tab_when_added">Close tab when added</label><input type="checkbox" name="close_tab_when_added" value="" id="close_tab_when_added"><br/>
 	
 	
 
