@@ -1,15 +1,41 @@
 <html>
 <head>
+	<script src="readitlater-client.js"></script> 
 	<script type="text/javascript" charset="utf-8">
-		function clicked() {
-			
-		}
+	function populateForm(){
+		chrome.tabs.getSelected(null, 
+			function(tab) { 
+				console.debug(tab);
+				title.value = tab.title;
+				url.value = tab.url;
+			}
+		);			
+	}
+
+	function clicked() {
+		var urlval = url.value;
+        var titleval = title.value;
+		container.innerHTML = "Submitting URL";
+		
+		add(localStorage.username, localStorage.password, urlval, encodeURI(titleval),
+			function (status){
+				if (status = '200') {
+					container.innerHTML = "Add Successful";
+				} else {
+					container.innerHTML = "Add Failed";
+				}
+			}
+		);
+	}
 	</script>
-</head>
-<body id="popup" onload="">
-	<label for="title">Title</label><input type="text" name="title" value="" id="title">
-	<label for="url">URL</label><input type="text" name="url" value="" id="url">
-	<label for="tags">Tags</label><input type="text" name="tags" value="" id="tags">
-	<button onClick='clicked()'>Add</button>
+</head>           
+
+<body id="popup" onload="populateForm()">
+	<div id="container">
+		<label for="title">Title</label><input type="text" name="title" value="" id="title">
+		<label for="url">URL</label><input type="text" name="url" value="" id="url">
+		<!--	<label for="tags">Tags</label><input type="text" name="tags" value="" id="tags"> -->
+		<button onClick='clicked()'>Add</button>
+	</div>
 </body>
 </html>

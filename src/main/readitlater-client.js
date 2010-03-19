@@ -9,7 +9,7 @@ var AUTH_URL = 'https://readitlaterlist.com/v2/auth';
 //TODO add these functions into a class        
 //TODO refactor out this XHR code
 
-function add(username, password, url, title) { 
+function add(username, password, url, title, callback) { 
 	var xhr = new XMLHttpRequest();
 	var reqUrl = ADD_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
 	//TODO encode URL properly?
@@ -22,6 +22,7 @@ function add(username, password, url, title) {
 		if (xhr.readyState == 4) {
 			console.log(xhr.status);
 			console.log(xhr.responseText);
+			callback(status);
 		}
 	}
 	xhr.send();
