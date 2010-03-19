@@ -8,9 +8,12 @@
 		//authenticateUser(localStorage.username, localStorage.password);
 		chrome.tabs.getSelected(null, 
 			function(tab) { 
-				console.log(tab)
-				add(localStorage.username, localStorage.password, tab.url, encodeURI(tab.title)); 
-		})
+				console.debug(tab)
+				add(localStorage.username, localStorage.password, tab.url, encodeURI(tab.title));
+				chrome.tabs.remove(tab.id, function(){
+					console.debug("closed tab" + tab.url);
+				}); 
+		});
 	}
 
 	function init(){

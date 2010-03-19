@@ -13,7 +13,8 @@ function add(username, password, url, title) {
 	var xhr = new XMLHttpRequest();
 	var reqUrl = ADD_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
 	//TODO encode URL properly?
-	//TODO check for null/empty title
+	//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
+	//TODO apparently RIL doesn't support anything besides http and https, check for this
 	reqUrl += '&url=' + url + '&title=' + title; 
 	console.debug("adding URL: " + url); 
 	xhr.open("GET", reqUrl, true);
@@ -21,7 +22,6 @@ function add(username, password, url, title) {
 		if (xhr.readyState == 4) {
 			console.log(xhr.status);
 			console.log(xhr.responseText);
-			alert("response = " + xhr.status);
 		}
 	}
 	xhr.send();
@@ -35,7 +35,6 @@ function auth(username, password) {
 		if (xhr.readyState == 4) {
 			console.log(xhr.status);
 			console.log(xhr.responseText);
-			alert("response = " + xhr.responseText);
 		}
 	}
 	xhr.send();   
