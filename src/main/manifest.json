@@ -2,13 +2,15 @@
   "name": "ChromeItLater",
   "version": "0.1",
   "description": "Chrome Extension for ReadItLater",
+  "background_page": "background.html",
   "browser_action": {
     "default_icon": "Knob Valid Blue.png",
 	"popup": "popup.html",
 	"default_title": "ChromeItLater"
   },
+  "icons": { "48": "Knob Valid Blue.png",
+			 "128": "Knob Valid Blue.png" },
   "options_page": "options.html",
-  "background_page": "background.html",
   "permissions": [
 	"tabs",
     "https://readitlaterlist.com/"

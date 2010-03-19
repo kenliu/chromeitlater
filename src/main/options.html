@@ -7,29 +7,30 @@
 
 var USERNAME_KEY = "username";
 var PASSWORD_KEY = "password";
+var CLOSE_TAB_KEY = "close_tab";
 
 function saveOptions() {
-	//TODO trim before saving?
-	var username = document.getElementById("username").value;
-	var password = document.getElementById("password").value;
+	//TODO trim before saving?	
 
-	if (!username || !password) return;
+	if (!username.value || !password.value) return;
 
-	localStorage[USERNAME_KEY] = username;
-	localStorage[PASSWORD_KEY] = password;
+	localStorage[USERNAME_KEY] = username.value;
+	localStorage[PASSWORD_KEY] = password.value;
+	localStorage[CLOSE_TAB_KEY] = close_tab_after_add.checked;
 
-	console.debug('saved: ' + username + '/' + password);
+	console.debug('saved: ' + username.value + '/' + password.value);
 
 	var status = document.getElementById("status");
 	status.innerHTML = "Options Saved.";
 }
 
 function restoreOptions() {
-	var username = localStorage[USERNAME_KEY];
-	var password = localStorage[PASSWORD_KEY];
-	if (!username || !password) return;
-	document.getElementById(USERNAME_KEY).value = username;
-	document.getElementById(PASSWORD_KEY).value = password;
+	var storedUsername = localStorage[USERNAME_KEY];
+	var storedPassword = localStorage[PASSWORD_KEY];
+	if (!storedUsername || !storedPassword) return;
+	username.value = storedUsername;
+	password.value = storedPassword;
+	close_tab_after_add.checked = localStorage[CLOSE_TAB_KEY];
 }
 
 </script>
@@ -42,10 +43,15 @@ function restoreOptions() {
 	
 	<label for="password">Password</label>
 	<input type="password" name="password" value="" id="password"><br/>
+	
+	<label for="close_tab_after_add">Close Tab After Add</label><input type="checkbox" name="close_tab_after_add" value="" id="close_tab_after_add">
+	
+	
 
 	<!-- TODO add way to check password? -->
 	<!-- TODO disable save button if options unchanged? -->
-	<button onclick="saveOptions()">Save</button>
+	<br/>
+	<button onclick="saveOptions()">Save Options</button>
 	<div id="status"></div>
 
 	<hr/>
