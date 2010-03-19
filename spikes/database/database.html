@@ -1,0 +1,77 @@
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>database</title>
+
+	<script type="text/javascript" charset="utf-8">
+	function createDB() {
+		console.log('creating db'); 
+
+		try {
+			if (window.openDatabase) {
+				db = openDatabase("DBTest", "1.0", "Test Database", 200000);
+				if (!db)
+				alert("Failed to open the database on disk.  This is probably because the"
+				+ "version was bad or there is not enough space left in this "
+				+ "domain's quota");
+				} else
+				alert("Couldn't open the database.  Please try with a WebKit nightly with this feature enabled");
+			} catch(err) { 
+				console.log(err);
+				return;
+			}              
+			console.log('db created');
+		}
+
+		function dropDB() {
+			console.log('dropping db');
+		}                             
+
+		function createTables(){
+			console.log('creating tables');
+			var db = openDatabase("DBTest", "1.0", "Test Database", 200000);
+			db.transaction(function(tx) 
+			{    
+				tx.executeSql('create table item(id integer primary key autoincrement	, url text, title text, stamp text)', 
+				[], 
+				function (tx, rs) { console.log(rs); }, 
+				function (tx, err) { console.log(err); } );
+			});
+		}  
+
+		function insert(){
+			console.log('inserting record');
+			chrome.tabs.getSelected(null, 
+				function(tab) { 
+					
+					var db = openDatabase("DBTest", "1.0", "Test Database", 200000);
+					db.transaction(
+						function(tx) {                
+							console.debug(tab);
+							tx.executeSql('insert into item (id, url, title, stamp) values (null, \'' + tab.url + '\',\'' + tab.title + '\', datetime(\'now\'))', 
+							//tx.executeSql('select * from item',
+							[], 
+							function (tx, rs) { console.log(rs); }, 
+							function (tx, err) { console.log(err); }
+						);
+
+					}
+				);
+			}
+		);					
+
+		}                   
+
+		</script>
+	</head>            
+	<body id="database" onload="">
+		<button onclick='createDB()'>create DB</button>             
+		<button onclick='dropDB()'>drop DB</button>             
+		<button onclick='createTables()'>create Tables</button>             
+		<button onclick='insert()'>insert record</button>
+		<div id="data">
+
+		</div>
+	</body>
+
+	</html>

@@ -1,0 +1,12 @@
+{
+  "name": "Persistence test",
+  "version": "1.0",
+  "description": "Test persistence",
+  "browser_action": {
+    "default_icon": "icon.png",
+	"popup": "hello.html"
+  },
+  "permissions": [
+    "https://readitlaterlist.com/"
+  ]
+}

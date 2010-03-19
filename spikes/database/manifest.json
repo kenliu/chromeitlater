@@ -1,0 +1,11 @@
+{
+  "name": "Database Spike",
+  "version": "0.1",
+  "description": "Database Spike",
+  "browser_action": {
+	"popup": "database.html"
+  },
+  "permissions": [
+	"tabs"
+  ]
+}

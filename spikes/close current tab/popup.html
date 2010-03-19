@@ -1,0 +1,10 @@
+<script>    
+console.log("clicked")
+chrome.tabs.getSelected(null, 
+	function(tab) { 
+		console.log(tab) 
+		alert("clicked tab id: " + tab.id)
+		chrome.tabs.remove(tab.id)
+		alert("closed tab" + tab.id)
+		})                       
+</script>

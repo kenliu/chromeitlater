@@ -1,0 +1,47 @@
+<script>
+var req = new XMLHttpRequest();
+req.open(
+    "GET",
+    "https://readitlaterlist.com/v2/get?username=5ced02&password=heymon&apikey=51eA1g6ed8dr0oV2d3p9825X72T5L559&since=1266348544",
+    true);
+//req.onload = showPhotos;
+req.send(null);
+
+
+
+function setPref(key, value) {
+  var config = {};
+  if (localStorage.config) {
+    config = JSON.parse(localStorage.config);
+  }
+  config[key] = value;
+  localStorage.config = JSON.stringify(config);
+}
+
+function getPref(key) {
+  if (!localStorage.config) {
+    return undefined;
+  }
+  var config = JSON.parse(localStorage.config);
+  return config[key];
+}
+
+// 
+// function showPhotos() {
+//   var photos = req.responseXML.getElementsByTagName("photo");
+// 
+//   for (var i = 0, photo; photo = photos[i]; i++) {
+//     var img = document.createElement("image");
+//     img.src = constructImageURL(photo);
+//     document.body.appendChild(img);
+//   }
+// }
+// 
+// // See: http://www.flickr.com/services/api/misc.urls.html
+// function constructImageURL(photo) {
+//   return "http://farm" + photo.getAttribute("farm") +
+//       ".static.flickr.com/" + photo.getAttribute("server") +
+//       "/" + photo.getAttribute("id") +
+//       "_" + photo.getAttribute("secret") +
+//       "_s.jpg";
+// }</script>

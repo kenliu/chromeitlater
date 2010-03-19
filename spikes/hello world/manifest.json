@@ -1,0 +1,10 @@
+{
+  "name": "Hello RIL",
+  "version": "1.0",
+  "description": "Test RIL",
+  "browser_action": {
+    "default_icon": "icon.png",
+	"popup": "hello.html"
+  },
+  "options_page": "options.html"
+}
