@@ -35,24 +35,26 @@
 	function clicked() {
 		var urlval = url.value;
 		var titleval = title.value;
-		container.innerHTML = "Submitting URL";
+		container.innerHTML = "Adding URL...";
 		
 		//TODO this is starting to look like lisp!
 		chrome.tabs.getSelected(null, 
 			function(tab) {
 				add(localStorage.username, localStorage.password, urlval, encodeURI(titleval),
 					function (status) {
-						if (status = '200') {
-							container.innerHTML = "Add Successful";
+						if (status == '200') {
+							container.innerHTML = "URL Added Successfully.";
 							if(localStorage.close_tab === 'true'){
 								chrome.tabs.remove(tab.id, 
 									function() { console.debug("closed tab" + tab.url); }
-							  	);                                  
+							  	);              
 							}
 						} 
 					   	else {
-							container.innerHTML = "Add Failed";
+							container.innerHTML = "Error adding URL.";
+
 						}
+						window.setTimeout(function() { window.close(); }, 1500);
 		   			}
 				);
 			}
