@@ -1,6 +1,6 @@
 {
   "name": "ChromeItLater",
-  "version": "0.1",
+  "version": "0.1.1",
   "description": "Chrome Extension for ReadItLater",
   "background_page": "background.html",
   "browser_action": {
