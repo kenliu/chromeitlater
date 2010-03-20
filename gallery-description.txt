@@ -1,0 +1,16 @@
+Google Chrome Extension for Read it Later (http://www.readitlaterlist.com)        
+
+This is an unofficial Read it Later client.
+
+It currently supports the following features:
+- Add to RIL using popup
+- Add to RIL instantly
+- Close current tab immediately after adding URL
+
+WARNING WARNING WARNING:
+THIS IS A VERY EARLY RELEASE!
+It works, but don't be surprised to find bugs and lots of ugly.
+
+Version History:
+- 0.1.1 (03-20-2010) Bug fix: add api response not handled correctly
+- 0.1 (03-19-2010) First release, supports adding and immediate adding with automatic tab closing
