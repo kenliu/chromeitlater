@@ -1,6 +1,6 @@
 {
   "name": "ChromeItLater",
-  "version": "0.1.1",
+  "version": "0.2",
   "description": "Add pages to Read it Later",
   "background_page": "background.html",
   "browser_action": {
