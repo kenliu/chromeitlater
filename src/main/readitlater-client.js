@@ -22,7 +22,7 @@ function add(username, password, url, title, callback) {
 		if (xhr.readyState == 4) {
 			console.log(xhr.status);
 			console.log(xhr.responseText);
-			callback(status);
+			callback(xhr.status, xhr.responseText);
 		}
 	}
 	xhr.send();
