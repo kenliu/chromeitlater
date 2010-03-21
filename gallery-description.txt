@@ -1,15 +1,16 @@
-Google Chrome Extension for Read it Later (http://www.readitlaterlist.com)        
+This is an unofficial client for Read it Later (http://www.readitlaterlist.com). Read it Later (RIL) is a web site that saves pages for you to read later from the same computer or another computer. This plugin saves pages directly to the RIL web site by clicking a button in the browser.
 
-This is an unofficial Read it Later client.
+This extension currently supports the following features:
+- Add page to RIL using popup
+- Add page to RIL instantly (one click to save a page)
+- Close current tab immediately after adding page  
 
-It currently supports the following features:
-- Add to RIL using popup
-- Add to RIL instantly
-- Close current tab immediately after adding URL
+You'll need to set up a Read it Later account before using this extension. Once you have an account, be sure to set up the Read it Later username and password in the extension options screen. (Right-click the blue ChromeItLater button for the options screen.)
 
 WARNING WARNING WARNING:
 THIS IS A VERY EARLY RELEASE!
 It works, but don't be surprised to find bugs and lots of ugly.
+Please send feedback to chromeitlater@gmail.com.
 
 Version History:
 - 0.1.1 (03-20-2010) Bug fix: add api response not handled correctly
