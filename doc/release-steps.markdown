@@ -8,7 +8,7 @@ Steps for release
 1. tag git version
 1. push tag to github
 1. push master/branch to github 
-1. create zip file for upload (TODO: automate)
+1. create zip file for upload (TODO: automate, zip from tag?)
 1. update description in extensions gallery
 1. create screencast for new features (optional)
 1. upload new extension
