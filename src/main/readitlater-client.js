@@ -19,9 +19,12 @@
 
 var API_KEY = '51eA1g6ed8dr0oV2d3p9825X72T5L559';
 
+//TODO dev API key?
+
 //TODO consolidate these URLs into a map
 var ADD_URL = 'https://readitlaterlist.com/v2/add';
 var AUTH_URL = 'https://readitlaterlist.com/v2/auth';
+var API_URL = 'https://readitlaterlist.com/v2/api';
 
 //TODO add these functions into a class        
 //TODO refactor out this XHR code
@@ -56,4 +59,17 @@ function auth(username, password) {
 		}
 	}
 	xhr.send();   
+}
+
+function api(callback) {
+	var xhr = new XMLHttpRequest();
+	var url = API_URL + '?apikey=' + API_KEY; 
+	xhr.open("GET", url, true);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4) {
+			console.log(xhr.status);
+			console.log(xhr.responseText);
+		}
+	}
+	xhr.send();   	
 }

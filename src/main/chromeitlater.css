@@ -1,0 +1,33 @@
+body {
+	font-family: Sans-serif;
+}
+   
+fieldset {
+	border-radius: .5em;
+}
+
+#container {
+}
+ 
+#flash {
+	border-radius: .5em;
+}
+
+#options_container {
+	width: 50%;
+}
+
+#options_content {
+	border-top-left-radius: .5em;
+	border-top-right-radius: .5em;
+	background-color: #36abe4;
+	padding: 1em;	
+}
+
+#options_footer {
+	padding: 1em;	
+	font-size: .75em;
+	background-color: gray;
+	border-bottom-left-radius: .5em;
+	border-bottom-right-radius: .5em;
+}
