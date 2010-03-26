@@ -7,11 +7,12 @@ This extension currently supports the following features:
 
 You'll need to set up a Read it Later account before using this extension. Once you have an account, be sure to set up the Read it Later username and password in the extension options screen. (Right-click the blue ChromeItLater button for the options screen.)
 
-WARNING WARNING WARNING:
-THIS IS A VERY EARLY RELEASE!
+WARNING WARNING WARNING WARNING WARNING:
+THIS IS A VERY EARLY BETA RELEASE!
 It works, but don't be surprised to find bugs and lots of ugly.
 Please send feedback to chromeitlater@gmail.com.
 
 Version History:
+- 0.2 (03-21-2010) UI enhancements, fix add api response not always handled correctly, fixed instant add
 - 0.1.1 (03-20-2010) Bug fix: add api response not handled correctly
 - 0.1 (03-19-2010) First release, supports adding and immediate adding with automatic tab closing
