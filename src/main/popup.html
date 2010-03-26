@@ -19,6 +19,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
 	<script src="readitlater-client.js"></script>
 	<script src="common.js"></script> 
 	<script type="text/javascript" charset="utf-8">
@@ -26,7 +27,7 @@
 	function loaded() {
 		if (!isInitialized() || !isLoginConfigured()) {
 			chrome.tabs.create({'url': 'options.html'}, null);
-			window.close(); //close popup
+			window.close();
 			return;
 		}		
 		
@@ -37,21 +38,20 @@
 					add(localStorage.username, localStorage.password, tab.url, encodeURI(tab.title), 
 						function (status, responseText) {
 							if (status == '200') {
-								//container.innerHTML = "<b>Page added successfully!</b>";
-								if(localStorage.close_tab === 'true'){
+								if(localStorage.close_tab === 'true') {
 									chrome.tabs.remove(tab.id, 
 										function() { console.debug("closed tab" + tab.url); }
 								  	);              
 								}
+								window.close();
 							} 
 						   	else {
 								container.innerHTML = '<b>Error adding page</b><br/><small>' + responseText + '</small>';
+								window.setTimeout(function() { window.close(); }, 1500);
 							}
-							window.setTimeout(function() { window.close(); }, 1500);
 						}
 					);
 			});
-			window.close(); //close popup   		
 		} else {
 			populateForm();
 		}
@@ -110,9 +110,15 @@
 	<!-- goofy styling to get vertically centered text -->
 <!--	<div style="display:table;height:100px;width:200px;">-->
 	<div id="container" style="display:table-cell;vertical-align:middle;text-align:center;">
-		<label for="title">Title</label> <input type="text" name="title" value="" id="title"><br/>
-		<label for="url">URL</label> <input type="text" name="url" value="" id="url"><br/>
+		<table>
+			<tr>
+				<td><label for="title">Title</label></td><td><input type="text" name="title" value="" id="title" size="50"></td>
+			</tr>
+			<tr>
+				<td><label for="url">URL</label></td><td><input type="text" name="url" value="" id="url" size="50"></td>
+			</tr>
 		<!--	<label for="tags">Tags</label><input type="text" name="tags" value="" id="tags"> -->
+		</table>
 		<button onClick='clicked()'>Add</button>
 	</div></div>
 </body>
