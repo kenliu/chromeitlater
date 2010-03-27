@@ -25,6 +25,7 @@ var API_KEY = '51eA1g6ed8dr0oV2d3p9825X72T5L559';
 var ADD_URL = 'https://readitlaterlist.com/v2/add';
 var AUTH_URL = 'https://readitlaterlist.com/v2/auth';
 var API_URL = 'https://readitlaterlist.com/v2/api';
+var GET_URL = 'https://readitlaterlist.com/v2/get';
 
 //TODO add these functions into a class        
 //TODO refactor out this XHR code
@@ -72,4 +73,22 @@ function api(callback) {
 		}
 	}
 	xhr.send();   	
+}
+ 
+/**
+* http://readitlaterlist.com/api/docs/#get
+*/
+function get(username, password, callback) {
+	var xhr = new XMLHttpRequest();
+	var reqUrl = GET_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
+	console.debug("getting all posts"); 
+	xhr.open("GET", reqUrl, true);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4) {
+			console.log(xhr.status);
+			console.log(xhr.responseText);
+			callback(xhr.status, xhr.responseText);
+		}
+	}
+	xhr.send();   
 }

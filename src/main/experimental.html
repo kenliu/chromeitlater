@@ -1,0 +1,50 @@
+<!-- 
+Copyright 2010 Kenneth Liu.
+
+This file is part of ChromeItLater.
+
+ChromeItLater is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+any later version.
+
+ChromeItLater is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
+	<script src="readitlater-client.js"></script>
+	<script src="common.js"></script> 
+	<script type="text/javascript" charset="utf-8">
+
+	function loaded() {
+
+	}        
+
+	function callGet(){
+		alert('calling api get');
+		get(localStorage.username, localStorage.password, function(status, responsetext) {
+			console.log(responsetext);
+        	callGetResults.innerText = responsetext;
+		});
+	}
+
+</script>
+</head>           
+
+<body id="popup" onload="loaded()">
+	<h1>Experimental page</h1>
+	<div>
+		<input type="button" name="get" value="call get" id="get" onclick="callGet()">
+		<div id='callGetResults'>
+		</div>
+	</div>
+</body>
+</html>
