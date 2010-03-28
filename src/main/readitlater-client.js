@@ -81,7 +81,8 @@ function api(callback) {
 function get(username, password, callback) {
 	var xhr = new XMLHttpRequest();
 	var reqUrl = GET_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;   
-	reqURL = reqURL + "&since=1269720341'
+	//reqUrl = reqUrl + '&since=1269720341'
+	reqUrl = reqUrl + '&since=1268539655'
 	console.debug("getting all posts"); 
 	xhr.open("GET", reqUrl, true);
 	xhr.onreadystatechange = function() {

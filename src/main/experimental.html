@@ -32,19 +32,83 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		alert('calling api get');
 		get(localStorage.username, localStorage.password, function(status, responsetext) {
 			console.log(responsetext);
-        	callGetResults.innerText = responsetext;
+			callGetResults.innerText = responsetext;
 		});
 	}
 
-</script>
+	var db;
+
+	function createDB(){
+		var dbSize = 5 * 1024 * 1024; // 5MB
+		db = openDatabase("chromeitlater", "1.0", "chromeitlater", dbSize);       
+		
+		console.log('creating tables');
+		db.transaction(function(tx) 
+		{    
+			tx.executeSql(CREATE_ITEM_TABLE, 
+			[], 
+			function (tx, rs) { console.log(rs); }, 
+			function (tx, err) { console.log(err); } );
+		});
+	}                  
+	
+	var CREATE_ITEM_TABLE = 'create table item (id integer primary key autoincrement, ' +
+		'item_id integer, url text, title text, time_updated integer, time_added integer, tags text, state integer, ' + 
+		'synced_date text, timestamp text, modified text, dirty integer)';
+
+	function createTables(){
+		console.log('creating tables');
+		db.transaction(function(tx) 
+		{    
+			tx.executeSql(CREATE_ITEM_TABLE, 
+			[], 
+			function (tx, rs) { console.log(rs); }, 
+			function (tx, err) { console.log(err); } );
+		});
+	}     
+	
+	function insertData(){
+		get(localStorage.username, localStorage.password, function(status, responsetext) {
+			console.log(responsetext);
+			var response = JSON.parse(responsetext); //assume that the response was ok
+			var list = response.list;
+			console.log(list);
+			processList(list);
+		});
+	}
+	
+	function processList(list) {
+		db.transaction(function(tx) {
+		    for (itemkey in list) {
+				var item = list[itemkey];
+				console.debug(item);
+				tx.executeSql("insert into item values (null, ?, ?, ?, ?, ?, null, ?, null, null, null, 0)",
+			[item.item_id, item.url, item.title, item.time_updated, item.time_added, item.state], doOnSuccess, doOnError);
+	    	}  	
+		});
+	}
+	
+	function doOnSuccess(tx, r){
+		console.log(r);
+	}
+	
+	function doOnError(tx, e){
+		console.error(e);
+		//alert('Something unexpected happened: ' + e.message );
+	}                                                                   
+	
+	</script>
 </head>           
 
-<body id="popup" onload="loaded()">
+<body id="popup" onload="">
 	<h1>Experimental page</h1>
 	<div>
 		<input type="button" name="get" value="call get" id="get" onclick="callGet()">
 		<div id='callGetResults'>
 		</div>
 	</div>
+
+	<input type="button" name="create db" value="create db" id="createdb" onclick="createDB()"/>
+<input type="button" name="" value="insert data" id="insertData" onclick="insertData()"/>
 </body>
 </html>

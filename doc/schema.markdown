@@ -15,17 +15,19 @@ database definitions
 item
 -----
 id int pk
+item_id integer
 url text
 title text
 time_updated integer
 time_added integer
-synced_date text
 tags text
 state integer
-timestamp text?
-modified text?
+synced_date text
+timestamp integer //local time
+modified integer  //local time
+dirty //local time
 
-text
+text (0:1 relationship with item)
 ----
 id int pk
 
