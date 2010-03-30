@@ -6,6 +6,11 @@ fieldset {
 	border-radius: .5em;
 }
 
+a:link { color: black; text-decoration:underline; }
+a:visited { color: black; text-decoration:underline; }
+a:hover { color: black; text-decoration:underline; }
+a:active { color: black; text-decoration:underline; }
+
 #container {
 }
  
