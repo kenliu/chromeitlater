@@ -1,0 +1,10 @@
+{
+	"pluginName": {
+		"message": "ChromeItLater",
+		"description": "plugin name"
+	},	
+	"pluginDescription": {
+		"message": "Save web pages to read later with one click! Adds pages to Read it Later online service.",
+		"description": "plugin description" 
+	}
+}

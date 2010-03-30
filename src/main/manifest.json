@@ -1,13 +1,14 @@
 {
-  "name": "ChromeItLater",
+  "name": "__MSG_pluginName__",
   "version": "0.2.1",
-  "description": "Add pages to Read it Later",
+  "description": "__MSG_pluginDescription__",
   "background_page": "background.html",
   "browser_action": {
     "default_icon": "Knob Valid Blue.png",
 	"popup": "popup.html",
 	"default_title": "ChromeItLater"
   },
+  "default_locale": "en",
   "icons": { "48": "Knob Valid Blue.png",
 			 "128": "Knob Valid Blue.png" },
   "options_page": "options.html",
