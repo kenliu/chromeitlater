@@ -4,13 +4,13 @@
   "description": "__MSG_pluginDescription__",
   "background_page": "background.html",
   "browser_action": {
-    "default_icon": "Knob Valid Blue.png",
+    "default_icon": "chromeitlater_32.png",
 	"popup": "popup.html",
 	"default_title": "ChromeItLater"
   },
   "default_locale": "en",
-  "icons": { "48": "Knob Valid Blue.png",
-			 "128": "Knob Valid Blue.png" },
+  "icons": { "48": "chromeitlater_32.png",
+			 "128": "chromeitlater_32.png" },
   "options_page": "options.html",
   "permissions": [
 	"tabs",
