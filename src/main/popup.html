@@ -36,7 +36,7 @@
  			chrome.tabs.getSelected(null, 
 				function(tab) { 
 					console.debug(tab)
-					add(localStorage.username, localStorage.password, tab.url, encodeURI(tab.title), 
+					add(localStorage.username, localStorage.password, tab.url, encodeURIComponent(tab.title), 
 						function (status, responseText) {
 							if (status == '200') {
 								if(localStorage.close_tab === 'true') {
