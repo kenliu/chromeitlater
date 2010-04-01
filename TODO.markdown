@@ -1,28 +1,38 @@
+Milestones for 2.0 release
+--------------------------
+Google Reader support
+
+
 Milestones for 1.0 release
 --------------------------
 - Check out GetSatisfaction/UserVoice/other for user support 
 - Check Chrome version
 - Create local branch for binaries
+- Keyboard shortcut (configurable)
                       
 Milestones for 0.4 release
 --------------------------
 - Rate limiting     
 - Automatically generate release notes from LH   
+- Improved popup handling                                 
+- Basic syncing
 
 Milestones for 0.3 release
 ---------------------------
 - Validate options page
-- Add tags
+- Add tags support
 - More descriptive error messages      
 - Check user login on application start?
 - Rudimentary help
 - Add unit tests
 - Improved/non-ugly user notification                                                        
-- Basic syncing
 - Make better icons?
 - Figure out a way to automatically run jslint from command line
 - Debug screen for experimental features         
 - Rake tasks for creating distribution
+- Grayed out initial icon
+- Store plugin version
+- Centralized logging
 
 0.2.1 release
 -------------
