@@ -44,9 +44,8 @@ function saveOptions() {
 }
 
 function loaded(){
-	if (checkFreshInstall() && checkLoginInfo()) {
-		restoreOptions();
-	}
+	if (!checkFreshInstall()) checkLoginInfo();
+	restoreOptions();
 }
 
 function restoreOptions() {
@@ -75,7 +74,7 @@ function checkLoginInfo() {
 }
 
 function showWelcomeMessage() {
-	flash('It looks like this extension was just installed or upgraded.<br/> If you haven\'t already, you\'ll need to <a href="http://readitlaterlist.com/signup/">sign up</a> for a Read It Later account before you can use this extension. Once you have an account, enter your login information below.');
+	flash('It looks like this extension was just installed.<br/> If you haven\'t already, you\'ll need to <a href="http://readitlaterlist.com/signup/">sign up</a> for a Read It Later account before you can use this extension. Once you have an account, enter your login information below.');
 }
 
 function flash(message) {
