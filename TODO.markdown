@@ -1,6 +1,6 @@
 Milestones for 2.0 release
 --------------------------
-Google Reader support
+- Google Reader support
 
 
 Milestones for 1.0 release
