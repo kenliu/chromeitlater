@@ -27,7 +27,7 @@
 		chrome.tabs.getSelected(null, 
 			function(tab) { 
 				console.debug(tab)
-				add(localStorage.username, localStorage.password, tab.url, encodeURI(tab.title));
+				add(localStorage.username, localStorage.password, tab.url, tab.title);
 				chrome.tabs.remove(tab.id, function(){
 					console.debug("closed tab" + tab.url);
 				}); 
