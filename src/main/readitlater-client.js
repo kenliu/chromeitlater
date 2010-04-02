@@ -28,15 +28,20 @@ var API_URL = 'https://readitlaterlist.com/v2/api';
 
 //TODO add these functions into a class        
 //TODO refactor out this XHR code
-
+                   
+/**
+* @param url unencoded url text
+* @param title unencoded page title
+*/
 function add(username, password, url, title, callback) { 
 	var xhr = new XMLHttpRequest();
 	var reqUrl = ADD_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
-	//TODO encode URL properly?
 	//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
 	//TODO apparently RIL doesn't support anything besides http and https, check for this
-	reqUrl += '&url=' + url + '&title=' + title; 
+	reqUrl += '&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title); 
 	console.debug("adding URL: " + url); 
+	chrome.extension.getBackgroundPage().console.debug("adding URL: " + url);
+	chrome.extension.getBackgroundPage().console.debug("submitting request: " + reqUrl);
 	xhr.open("GET", reqUrl, true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
