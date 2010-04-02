@@ -12,7 +12,8 @@ THIS IS A VERY EARLY BETA RELEASE!
 It works, but don't be surprised to find bugs and lots of ugly.
 Please send feedback to chromeitlater@gmail.com.
 
-Version History:
+Version History: 
+- 0.2.1 (04-03-2010) Bug fixes: some urls were truncated, missing icon on Windows
 - 0.2 (03-21-2010) UI enhancements, fix add api response not always handled correctly, fixed instant add
 - 0.1.1 (03-20-2010) Bug fix: add api response not handled correctly
 - 0.1 (03-19-2010) First release, supports adding and immediate adding with automatic tab closing
