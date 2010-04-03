@@ -37,6 +37,7 @@ Milestones for 0.3 release
 0.2.1 release
 -------------
 - Bug: upgrading logic is incorrect for initialization
+- Bug: URLs/titles with special characters get truncated
 - Set up bug reporting / LH hooks
 
 Milestones for 0.2 release
