@@ -19,8 +19,8 @@ Milestones for 0.4 release
 
 Milestones for 0.3 release
 ---------------------------
-- Validate options page
 - Add tags support
+- Validate options page
 - More descriptive error messages      
 - Check user login on application start?
 - Rudimentary help
