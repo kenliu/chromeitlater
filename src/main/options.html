@@ -20,7 +20,9 @@
 <head><title>ChromeItLater Options</title>
 <link rel="stylesheet" type="text/css" href="chromeitlater.css" />
 	<script src="common.js"></script>
-<script type="text/javascript">
+	<script src="lib/prototype.js"></script>
+	<script src="readitlater-client.js"></script>
+	<script type="text/javascript">
 
 var CLOSE_TAB_KEY = "close_tab";
 var ADD_INSTANTLY = "add_instantly";
@@ -91,6 +93,10 @@ function flashError(message) {
 	flashDiv.innerHTML = message;
 }
 
+function handleApi() {
+	
+}
+
 </script>
 </head>
 
@@ -144,6 +150,10 @@ function flashError(message) {
 
 			<p>Icon by <a href="http://itweek.deviantart.com/">iTweek (Miles Ponson)</a>.</p>
 		</div>
+	</div>
+	<div>
+		<button onclick="api(function(){})">API test</button>
+		<div id="api_info"></div>
 	</div>
 </body>
 </html>

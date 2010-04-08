@@ -74,7 +74,12 @@ function api(callback) {
 		if (xhr.readyState == 4) {
 			console.log(xhr.status);
 			console.log(xhr.responseText);
+			callback(xhr.status, xhr.responseText);
 		}
 	}
 	xhr.send();   	
+}  
+
+function handleApi(status, callback) {
+	
 }
