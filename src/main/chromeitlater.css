@@ -6,10 +6,10 @@ fieldset {
 	border-radius: .5em;
 }
 
-a:link { color: black; text-decoration:underline; }
-a:visited { color: black; text-decoration:underline; }
-a:hover { color: black; text-decoration:underline; }
-a:active { color: black; text-decoration:underline; }
+#options_footer a:link { color: black; text-decoration:underline; }
+#options_footer a:visited { color: black; text-decoration:underline; }
+#options_footer a:hover { color: black; text-decoration:underline; }
+#options_footer a:active { color: black; text-decoration:underline; }
 
 #container {
 }
@@ -35,4 +35,41 @@ a:active { color: black; text-decoration:underline; }
 	background-color: gray;
 	border-bottom-left-radius: .5em;
 	border-bottom-right-radius: .5em;
+}
+
+#popup_container {
+	display:table-cell;vertical-align:middle;text-align:center;"
+	
+}      
+
+/** styles for the footer in the popup */
+#popup_footer {
+	margin: 0;
+	padding: 0;
+	font-size: .75em;
+	background-color: black;
+	float: left;
+	width: 100%;
+}  
+
+#popup_footer ul {
+	margin: 0;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottome: 5px;
+}
+
+#popup_footer li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+#popup_footer a,
+#popup_footer a:visited,
+#popup_footer a:hover,
+#popup_footer a:active {
+	color: gray;
+	padding: 5px;
+	text-decoration: none;
 }

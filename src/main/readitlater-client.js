@@ -16,6 +16,7 @@
     You should have received a copy of the GNU General Public License
     along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 */
+<script src="lib/prototype.js"> 
 
 var API_KEY = '51eA1g6ed8dr0oV2d3p9825X72T5L559';
 

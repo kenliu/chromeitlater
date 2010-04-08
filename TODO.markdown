@@ -9,6 +9,8 @@ Features for 1.0 release
 - Check Chrome version
 - Create local branch for binaries
 - Keyboard shortcut (configurable)
+- Random display
+- One click mark as read/close tab
                       
 Features for 0.4 release
 --------------------------
@@ -35,6 +37,8 @@ Features for 0.3 release
 - Store plugin version
 - Centralized logging   
 - Basic shortcut keys
+- Debug page: API usage, logging on background page
+- Gallery stats report
 
 0.2.1 release
 -------------
