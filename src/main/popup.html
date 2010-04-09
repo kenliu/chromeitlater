@@ -112,24 +112,26 @@
 	<!-- goofy styling to get vertically centered text -->
 <!--	<div style="display:table;height:100px;width:200px;">-->
 	<div id="popup_container">
-		<table>
-			<tr>
-				<td><label for="title">Title</label></td><td><input type="text" name="title" value="" id="title" size="50"></td>
-			</tr>
-			<tr>
-				<td><label for="url">URL</label></td><td><input type="text" name="url" value="" id="url" size="50"></td>
-			</tr>
-		</table>
-		
-		<button onClick='clicked()'>Add</button>
-	</div></div>
-	<div style="width:100%" id="popup_footer">
-		<ul style="width:100%">
-			<li><a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a></li>
-			<li><a href="http://www.readitlaterlist.com/read" target="ril_read">read</a></li>
-			<li><a href="http://www.readitlaterlist.com/d" target="ril_blank">digest</a></li>
-			<li><a href="help/index.html">help</a>
-		</ul>
+		<div id="add_panel">
+			<table>
+				<tr>
+					<td><label for="title">Title</label></td><td><input type="text" name="title" value="" id="title" size="50"></td>
+				</tr>
+				<tr>
+					<td><label for="url">URL</label></td><td><input type="text" name="url" value="" id="url" size="50"></td>
+				</tr>
+			</table>
+
+			<button onClick='clicked()'>Add</button>
+		</div>
+		<div style="width:100%" id="popup_footer">
+			<ul style="width:100%">
+				<li><a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a></li>
+				<li><a href="http://www.readitlaterlist.com/read" target="ril_read">read</a></li>
+				<li><a href="http://www.readitlaterlist.com/d" target="ril_blank">digest</a></li>
+				<li><a href="help/index.html" target-"cil_help">help</a></li>
+			</ul>
+		</div>
 	</div>
 </body>
 </html>
