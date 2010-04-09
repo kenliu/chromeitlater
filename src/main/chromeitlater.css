@@ -36,13 +36,18 @@ fieldset {
 	border-bottom-left-radius: .5em;
 	border-bottom-right-radius: .5em;
 }           
+                          
+/**************************
+* Styles for the popup
+***************************/
 
 #popup {
 	margin: 0px;
 	padding: 0px;
 	border-style: solid; 
-	border-width: 1px; 
-	border-radius:5px;
+	border-width: 1px;
+	border-color: #333333; 
+	border-radius: 5px;
 }
 
 #popup_container {
@@ -54,12 +59,24 @@ fieldset {
 	margin: 8px;
 }
 
+#popup label {
+	font-size: .75em;
+}
+
+#popup input {
+	margin-bottom: 5px;
+}
+
+.popup_message {
+	margin: 8px;
+}
+
 /** styles for the footer in the popup */
 #popup_footer {
 	margin: 0;
 	padding: 5px;
 	font-size: .75em;
-	background-color: black;
+	background-color: #333333;
 	/** float: left; */
 	/** width: 100%; */
 }  
@@ -68,7 +85,7 @@ fieldset {
 	margin: 0;
 	text-align: center;
 	padding-top: 5px;
-	padding-bottome: 5px;
+	padding-bottom: 5px;
 }
 
 #popup_footer li {
@@ -81,7 +98,7 @@ fieldset {
 #popup_footer a:visited,
 #popup_footer a:hover,
 #popup_footer a:active {
-	color: gray;
+	color: lightgray;
 	padding: 5px;
 	text-decoration: none;
 }
