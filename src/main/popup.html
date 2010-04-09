@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
 	<script src="readitlater-client.js"></script>
 	<script src="common.js"></script>
-	<script src="lib/prototype.js"> 
+	<script src="lib/prototype.js"></script> 
 	<script type="text/javascript" charset="utf-8">
 	
 	function loaded() {
@@ -108,10 +108,13 @@
 	</script>
 </head>           
 
-<body id="popup" style="border-style: solid; border-width: 1px; margin:0px;" onload="loaded()">
+<body id="popup" onload="loaded()">
 	<!-- goofy styling to get vertically centered text -->
 <!--	<div style="display:table;height:100px;width:200px;">-->
 	<div id="popup_container">
+		<div id="header" style="margin: 8px;">
+		<b>ChromeItLater</b>	
+		</div>
 		<div id="add_panel">
 			<table>
 				<tr>
@@ -122,15 +125,13 @@
 				</tr>
 			</table>
 
-			<button onClick='clicked()'>Add</button>
+			<button onClick="clicked()">Add</button>
 		</div>
-		<div style="width:100%" id="popup_footer">
-			<ul style="width:100%">
-				<li><a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a></li>
-				<li><a href="http://www.readitlaterlist.com/read" target="ril_read">read</a></li>
-				<li><a href="http://www.readitlaterlist.com/d" target="ril_blank">digest</a></li>
-				<li><a href="help/index.html" target-"cil_help">help</a></li>
-			</ul>
+		<div id="popup_footer">
+				<a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a>
+				<a href="http://www.readitlaterlist.com/read" target="ril_read">read</a>
+				<a href="http://www.readitlaterlist.com/d" target="ril_blank">digest</a>
+				<a href="help/index.html" target="cil_help">help</a>
 		</div>
 	</div>
 </body>
