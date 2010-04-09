@@ -6,6 +6,11 @@ fieldset {
 	border-radius: .5em;
 }
 
+
+/**************************
+* Styles for the options page
+***************************/
+
 #options_footer a:link { color: black; text-decoration:underline; }
 #options_footer a:visited { color: black; text-decoration:underline; }
 #options_footer a:hover { color: black; text-decoration:underline; }
@@ -51,8 +56,6 @@ fieldset {
 }
 
 #popup_container {
-/**	display:table-cell;vertical-align:middle;text-align:center;"*/
-	
 }      
 
 #add_panel {
