@@ -1,0 +1,16 @@
+{
+  "name": "Keyboard Shortcut Spike",
+  "version": "0.1",
+  "description": "Keyboard Shortcut Spike",
+  "permissions": [
+	"tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["keyboard_handler.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
