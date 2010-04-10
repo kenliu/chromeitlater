@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>TODO.markdown</string>
+	<string>src/main/readitlater-client.js</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -35,42 +35,14 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>doc/ideas.md</key>
+		<key>doc/design/keyboard-shortcut.md</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>96</integer>
+				<integer>61</integer>
 				<key>line</key>
-				<integer>5</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>gallery-description.txt</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>81</integer>
-				<key>line</key>
-				<integer>15</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>src/main/background.html</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>72</integer>
-				<key>line</key>
-				<integer>29</integer>
+				<integer>13</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -82,42 +54,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>31</integer>
-				<key>line</key>
-				<integer>26</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>src/main/debug.html</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
 				<integer>1</integer>
 				<key>line</key>
-				<integer>21</integer>
+				<integer>74</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>src/main/options.html</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>44</integer>
-				<key>line</key>
-				<integer>46</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>102</integer>
+			<integer>28</integer>
 		</dict>
 		<key>src/main/persistence.js</key>
 		<dict>
@@ -138,14 +82,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>73</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>38</integer>
+				<integer>25</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>6</integer>
+			<integer>9</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>24</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>25</integer>
+			</dict>
 		</dict>
 		<key>src/main/readitlater-client.js</key>
 		<dict>
@@ -154,7 +114,7 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>37</integer>
+				<integer>18</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -164,16 +124,11 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>src/main/chromeitlater.css</string>
-		<string>src/main/popup.html</string>
-		<string>src/main/options.html</string>
-		<string>doc/ideas.md</string>
-		<string>src/main/debug.html</string>
-		<string>src/main/persistence.js</string>
-		<string>gallery-description.txt</string>
 		<string>TODO.markdown</string>
+		<string>src/main/popup.html</string>
+		<string>src/main/persistence.js</string>
 		<string>src/main/readitlater-client.js</string>
-		<string>src/main/background.html</string>
+		<string>src/main/chromeitlater.css</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
@@ -209,6 +164,21 @@
 						</dict>
 					</dict>
 				</dict>
+				<key>spikes</key>
+				<dict>
+					<key>isExpanded</key>
+					<true/>
+					<key>subItems</key>
+					<dict>
+						<key>keyboard-shortcut</key>
+						<dict>
+							<key>isExpanded</key>
+							<true/>
+							<key>subItems</key>
+							<dict/>
+						</dict>
+					</dict>
+				</dict>
 				<key>src</key>
 				<dict>
 					<key>isExpanded</key>
@@ -220,23 +190,7 @@
 							<key>isExpanded</key>
 							<true/>
 							<key>subItems</key>
-							<dict>
-								<key>_locales</key>
-								<dict>
-									<key>isExpanded</key>
-									<true/>
-									<key>subItems</key>
-									<dict>
-										<key>en</key>
-										<dict>
-											<key>isExpanded</key>
-											<true/>
-											<key>subItems</key>
-											<dict/>
-										</dict>
-									</dict>
-								</dict>
-							</dict>
+							<dict/>
 						</dict>
 					</dict>
 				</dict>
