@@ -1,38 +1,44 @@
-Milestones for 2.0 release
+Features for 2.0 release
 --------------------------
 - Google Reader support
 
 
-Milestones for 1.0 release
+Features for 1.0 release
 --------------------------
 - Check out GetSatisfaction/UserVoice/other for user support 
 - Check Chrome version
 - Create local branch for binaries
 - Keyboard shortcut (configurable)
+- Random display
+- One click mark as read/close tab
                       
-Milestones for 0.4 release
+Features for 0.4 release
 --------------------------
 - Rate limiting     
 - Automatically generate release notes from LH   
 - Improved popup handling                                 
 - Basic syncing
+- Make better icons?
 
-Milestones for 0.3 release
+Features for 0.3 release
 ---------------------------
 - Add tags support
+- Add links in popup footer to RIL
 - Validate options page
 - More descriptive error messages      
 - Check user login on application start?
 - Rudimentary help
 - Add unit tests
 - Improved/non-ugly user notification                                                        
-- Make better icons?
 - Figure out a way to automatically run jslint from command line
 - Debug screen for experimental features         
 - Rake tasks for creating distribution
 - Grayed out initial icon
 - Store plugin version
-- Centralized logging
+- Centralized logging   
+- Basic shortcut keys
+- Debug page: API usage, logging on background page
+- Gallery stats report
 
 0.2.1 release
 -------------
@@ -40,7 +46,7 @@ Milestones for 0.3 release
 - Bug: URLs/titles with special characters get truncated
 - Set up bug reporting / LH hooks
 
-Milestones for 0.2 release
+Features for 0.2 release
 --------------------------
 - Create project page
 - Check for application initialization
@@ -56,7 +62,7 @@ Milestones for 0.2 release
 - options screen less fugly
 - popup closes automatically
 
-Milestones for 0.1 release
+Features for 0.1 release
 --------------------------
 - Support closing tab immediately
 - Make close tab configurable
