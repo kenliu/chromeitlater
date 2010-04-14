@@ -1,16 +1,16 @@
 {
   "name": "__MSG_pluginName__",
-  "version": "0.3",
+  "version": "0.2.2",
   "description": "__MSG_pluginDescription__",
   "background_page": "background.html",
   "browser_action": {
-    "default_icon": "chromeitlater_32.png",
+    "default_icon": "folder-library-icon_32.png",
 	"popup": "popup.html",
 	"default_title": "ChromeItLater"
   },
   "default_locale": "en",
-  "icons": { "48": "chromeitlater_32.png",
-			 "128": "chromeitlater_32.png" },
+  "icons": { "48": "folder-library-icon_48.png",
+			 "128": "folder-library-icon_128.png" },
   "options_page": "options.html",
   "permissions": [
 	"tabs",
