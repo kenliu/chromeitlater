@@ -24,6 +24,7 @@ var API_KEY = '51eA1g6ed8dr0oV2d3p9825X72T5L559';
 var ADD_URL = 'https://readitlaterlist.com/v2/add';
 var AUTH_URL = 'https://readitlaterlist.com/v2/auth';
 var API_URL = 'https://readitlaterlist.com/v2/api';
+var SEND_URL = 'https://readitlaterlist.com/v2/send';
 
 //TODO add these functions into a class        
 //TODO refactor out this XHR code
@@ -78,4 +79,33 @@ function api(callback) {
 		}
 	}
 	xhr.send();   	
+}
+
+function sendNewURL(username, password, url, title, tags, callback) {
+	var xhr = new XMLHttpRequest();
+	var reqUrl = SEND_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
+	//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
+	//TODO apparently RIL doesn't support anything besides http and https, check for this
+	chrome.extension.getBackgroundPage().console.debug("adding URL: " + url);
+	chrome.extension.getBackgroundPage().console.debug("submitting request: " + reqUrl);
+
+	//build JSON request
+	var reqObj = {
+		"0":{
+			"url": encodeURIComponent(url),
+			"title": encodeURIComponent(title)
+		}
+	};
+
+ 	reqUrl += '&new=' + JSON.stringify(reqObj);
+
+	xhr.open("GET", reqUrl, true);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4) {
+			console.log(xhr.status);
+			console.log(xhr.responseText);
+			callback(xhr.status, xhr.responseText);
+		}
+	}
+	xhr.send();
 }

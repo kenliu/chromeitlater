@@ -23,7 +23,6 @@ Features for 0.4 release
 Features for 0.3 release
 ---------------------------
 - Add tags support
-- Add links in popup footer to RIL
 - Validate options page
 - More descriptive error messages      
 - Check user login on application start?
@@ -39,6 +38,13 @@ Features for 0.3 release
 - Basic shortcut keys
 - Debug page: API usage, logging on background page
 - Gallery stats report
+      
+0.2.2 release
+-------------
+- Link to help
+- Updated style
+- Add links in popup footer to RIL
+
 
 0.2.1 release
 -------------
