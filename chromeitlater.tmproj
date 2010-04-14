@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>src/main/readitlater-client.js</string>
+	<string>src/main/manifest.json</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -49,28 +49,44 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>src/main/chromeitlater.css</key>
+		<key>my extensions src.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>126</integer>
 				<key>line</key>
-				<integer>74</integer>
+				<integer>2596</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>28</integer>
+			<integer>2638</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>82</integer>
+				<key>line</key>
+				<integer>2596</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>126</integer>
+				<key>line</key>
+				<integer>2596</integer>
+			</dict>
 		</dict>
-		<key>src/main/persistence.js</key>
+		<key>src/main/manifest.json</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>26</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>12</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -82,30 +98,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>23</integer>
 				<key>line</key>
-				<integer>25</integer>
+				<integer>38</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>9</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>24</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>25</integer>
-			</dict>
+			<integer>29</integer>
 		</dict>
 		<key>src/main/readitlater-client.js</key>
 		<dict>
@@ -114,21 +114,21 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>18</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>23</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>TODO.markdown</string>
 		<string>src/main/popup.html</string>
-		<string>src/main/persistence.js</string>
 		<string>src/main/readitlater-client.js</string>
-		<string>src/main/chromeitlater.css</string>
+		<string>TODO.markdown</string>
+		<string>my extensions src.js</string>
+		<string>src/main/manifest.json</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
@@ -198,6 +198,6 @@
 		</dict>
 	</dict>
 	<key>windowFrame</key>
-	<string>{{60, 0}, {1244, 878}}</string>
+	<string>{{60, 1}, {1313, 877}}</string>
 </dict>
 </plist>
