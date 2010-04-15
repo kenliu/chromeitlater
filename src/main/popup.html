@@ -20,9 +20,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
+	<script src="lib/prototype.js"></script> 
 	<script src="readitlater-client.js"></script>
 	<script src="common.js"></script>
-	<script src="lib/prototype.js"></script> 
 	<script type="text/javascript" charset="utf-8">
 
 	function loaded() {
@@ -72,12 +72,13 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		function clicked() {		
 			var urlval = url.value;
 			var titleval = title.value;
+			var tagsval = tags.value;
 			popup_container.innerHTML = '<div class="popup_message">Adding URL...</div>';
 
 			//TODO this is starting to look like lisp!
 			chrome.tabs.getSelected(null, 
 				function(tab) {
-					sendNewURL(localStorage.username, localStorage.password, urlval, titleval, null,
+					sendNewURL(localStorage.username, localStorage.password, urlval, titleval, tagsval,
 						function (status, responseText) {
 							if (status == '200') {
 								popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully!</b></div>';
@@ -108,6 +109,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 				<div id="add_panel">
 					<label for="title">Title</label><br/><input type="text" name="title" value="" id="title" size="50"><br/>
 					<label for="url">URL</label><br/><input type="text" name="url" value="" id="url" size="50"><br/>
+					<label for="tags">Tags</label><br/><input type="text" name="tags" value="" id="tags" size="50"><br/>
 					<button onClick="clicked()">Add</button>
 				</div>
 				<div id="popup_footer">

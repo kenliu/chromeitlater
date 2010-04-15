@@ -96,9 +96,19 @@ function sendNewURL(username, password, url, title, tags, callback) {
 			"title": encodeURIComponent(title)
 		}
 	};
-
  	reqUrl += '&new=' + JSON.stringify(reqObj);
-
+	  
+	if (!tags.blank()) {
+		var tagsObj = {
+			"0":{
+				"url": encodeURIComponent(url),
+				"tags": encodeURIComponent(tags)
+			}
+		};                  
+		reqUrl += '&update_tags=' + JSON.stringify(tagsObj);
+	}
+	
+	chrome.extension.getBackgroundPage().console.debug("submitting URL: " + reqUrl); 
 	xhr.open("GET", reqUrl, true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
