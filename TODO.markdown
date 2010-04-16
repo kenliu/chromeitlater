@@ -18,7 +18,10 @@ Features for 0.4 release
 - Improved popup handling                                 
 - Basic syncing
 - Make better icons?
-- Keyboard shortcut (configurable)
+- Keyboard shortcut (configurable) 
+- Save all tabs in window
+- Browse recent saved urls
+- Manage recently saved urls
 
 Features for 0.3 release
 ---------------------------
