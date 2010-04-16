@@ -8,7 +8,6 @@ Features for 1.0 release
 - Check out GetSatisfaction/UserVoice/other for user support 
 - Check Chrome version
 - Create local branch for binaries
-- Keyboard shortcut (configurable)
 - Random display
 - One click mark as read/close tab
                       
@@ -22,8 +21,8 @@ Features for 0.4 release
 
 Features for 0.3 release
 ---------------------------
+- Keyboard shortcut (configurable)
 - Add tags support
-- Add links in popup footer to RIL
 - Validate options page
 - More descriptive error messages      
 - Check user login on application start?
