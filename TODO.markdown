@@ -18,25 +18,24 @@ Features for 0.4 release
 - Improved popup handling                                 
 - Basic syncing
 - Make better icons?
+- Keyboard shortcut (configurable)
 
 Features for 0.3 release
 ---------------------------
-- Keyboard shortcut (configurable)
 - Add tags support
-- Validate options page
+- Grayed out initial icon/validate options page
 - More descriptive error messages      
-- Check user login on application start?
 - Rudimentary help
 - Add unit tests
 - Improved/non-ugly user notification                                                        
 - Figure out a way to automatically run jslint from command line
 - Debug screen for experimental features         
 - Rake tasks for creating distribution
-- Grayed out initial icon
 - Store plugin version
 - Centralized logging   
 - Basic shortcut keys
 - Debug page: API usage, logging on background page
+- Check user login on application start?
 - Gallery stats report
 
 0.2.1 release
