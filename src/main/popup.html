@@ -24,6 +24,8 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	<script src="common.js"></script>
 	<script src="lib/prototype.js"></script> 
 	<script type="text/javascript" charset="utf-8">
+	
+	var currentPage = 0;
 
 	function loaded() {
 		if (!isInitialized() || !isLoginConfigured()) {
@@ -105,22 +107,37 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	}         
 
 	function showUrls() {
-		get(localStorage.username, localStorage.password, 
+		var opts = {
+			'page': currentPage
+		}
+		
+		get(localStorage.username, localStorage.password, opts, 
 			function(xhr) {
 				var response = JSON.parse(xhr.responseText);
 				console.log(response);
 				var urls = response.list;
-				var html = '<ul>';
-				for (propertyName in urls) { 
-					var url = urls[propertyName];					
-					html += '<li><a href="' + url.url +  '" target="new">' + url.title + '</a></li>';
-				}
-				html += '</ul>'
-				recent_urls.innerHTML = html;  		
+				//if (urls.length > 0) {
+					var html = '<ul>';
+					for (propertyName in urls) { 
+						var url = urls[propertyName];					
+						html += '<li><a href="' + url.url +  '" target="new">' + url.title + '</a></li>';
+					}                     
+					html += '</ul>'
+					recent_urls.innerHTML = html;  		
+				//}
 			}
 		);
 	}
-
+    
+	function nextPage(){
+		currentPage++;
+		showUrls();
+	}
+	
+	function prevPage(){
+		currentPage--;
+		showUrls();
+	}
 	</script>
 </head>           
 
@@ -138,6 +155,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		<div id="recent_urls_panel">
 			<div id="recent_urls_title"><b>Recently Saved</b></div>
 			<div id="recent_urls"></div>
+			<div id="recent_urls_pager"><a href="javascript:prevPage()">&lt;</a> <a href="javascript:nextPage()">&gt;</a></div>
 		</div>
 		<div id="popup_footer">
 			<a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a>

@@ -79,10 +79,10 @@ function api(callback) {
 	xhr.send();   	
 }
 
-function get(username, password, callback) {
+function get(username, password, opts, callback) {
 	var xhr = new XMLHttpRequest();
 	var url = GET_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY; 
-	url += '&state=unread&count=5'
+	url += '&state=unread&count=10&page=' + opts.page;
 	xhr.open("GET", url, true);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
