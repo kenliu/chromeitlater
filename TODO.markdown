@@ -8,7 +8,6 @@ Features for 1.0 release
 - Check out GetSatisfaction/UserVoice/other for user support 
 - Check Chrome version
 - Create local branch for binaries
-- Keyboard shortcut (configurable)
 - Random display
 - One click mark as read/close tab
                       
@@ -19,24 +18,27 @@ Features for 0.4 release
 - Improved popup handling                                 
 - Basic syncing
 - Make better icons?
+- Keyboard shortcut (configurable) 
+- Save all tabs in window
+- Browse recent saved urls
+- Manage recently saved urls
 
 Features for 0.3 release
 ---------------------------
 - Add tags support
-- Validate options page
+- Grayed out initial icon/validate options page
 - More descriptive error messages      
-- Check user login on application start?
 - Rudimentary help
 - Add unit tests
 - Improved/non-ugly user notification                                                        
 - Figure out a way to automatically run jslint from command line
 - Debug screen for experimental features         
 - Rake tasks for creating distribution
-- Grayed out initial icon
 - Store plugin version
 - Centralized logging   
 - Basic shortcut keys
 - Debug page: API usage, logging on background page
+- Check user login on application start?
 - Gallery stats report
       
 0.2.2 release
