@@ -13,6 +13,7 @@ It works, but don't be surprised to find bugs and lots of ugly.
 Please send feedback to chromeitlater@gmail.com.
 
 Version History:
+- 0.2.3 (05-15-2010) Added support for tags when adding page
 - 0.2.2 (04-14-2010) Cosmetic changes: changed "fugly" icon, added links to RIL site 
 - 0.2.1 (04-03-2010) Bug fixes: some urls were truncated, missing icon on Windows options page
 - 0.2 (03-21-2010) UI enhancements, fix add api response not always handled correctly, fixed instant add

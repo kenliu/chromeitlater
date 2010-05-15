@@ -25,7 +25,6 @@ Features for 0.4 release
 
 Features for 0.3 release
 ---------------------------
-- Add tags support
 - Grayed out initial icon/validate options page
 - More descriptive error messages      
 - Rudimentary help
@@ -40,7 +39,11 @@ Features for 0.3 release
 - Debug page: API usage, logging on background page
 - Check user login on application start?
 - Gallery stats report
-      
+                           
+0.2.3 release
+-------------
+- Add tags support
+
 0.2.2 release
 -------------
 - Link to help
