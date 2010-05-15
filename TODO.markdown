@@ -17,7 +17,6 @@ Features for 0.4 release
 - Automatically generate release notes from LH   
 - Improved popup handling                                 
 - Basic syncing
-- Make better icons?
 - Keyboard shortcut (configurable) 
 - Save all tabs in window
 - Browse recent saved urls
@@ -39,6 +38,11 @@ Features for 0.3 release
 - Debug page: API usage, logging on background page
 - Check user login on application start?
 - Gallery stats report
+- Browse recent posts         
+
+0.2.4 release
+-------------
+- Fix bug for slow connections (#5)
                            
 0.2.3 release
 -------------
