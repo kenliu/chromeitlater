@@ -36,7 +36,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			popup_container.innerHTML = ''; //clear the popup so we don't see an empty form briefly
 			chrome.tabs.getSelected(null, 
 				function(tab) { 
-					console.debug(tab)
+					console.debug(tab);
 					add(localStorage.username, localStorage.password, tab.url, tab.title, 
 						function (status, responseText) {
 							if (status == '200') {
@@ -78,7 +78,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			//TODO this is starting to look like lisp!
 			chrome.tabs.getSelected(null, 
 				function(tab) {
-					sendNewURL(localStorage.username, localStorage.password, urlval, titleval, tagsval,
+					chrome.extension.getBackgroundPage().api.sendNewURL(localStorage.username, localStorage.password, urlval, titleval, tagsval,
 						function (status, responseText) {
 							if (status == '200') {
 								popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully!</b></div>';

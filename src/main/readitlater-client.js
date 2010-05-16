@@ -24,7 +24,8 @@ var API_KEY = '51eA1g6ed8dr0oV2d3p9825X72T5L559';
 var ADD_URL = 'https://readitlaterlist.com/v2/add';
 var AUTH_URL = 'https://readitlaterlist.com/v2/auth';
 var API_URL = 'https://readitlaterlist.com/v2/api';
-var SEND_URL = 'https://readitlaterlist.com/v2/send';
+//var SEND_URL = 'https://readitlaterlist.com/v2/send';
+var SEND_URL = 'https://localhost:4567'
 
 //TODO add these functions into a class        
 //TODO refactor out this XHR code
@@ -81,41 +82,69 @@ function api(callback) {
 	xhr.send();   	
 }
 
-function sendNewURL(username, password, url, title, tags, callback) {
-	var xhr = new XMLHttpRequest();
-	var reqUrl = SEND_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
-	//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
-	//TODO apparently RIL doesn't support anything besides http and https, check for this
-	chrome.extension.getBackgroundPage().console.debug("adding URL: " + url);
-	chrome.extension.getBackgroundPage().console.debug("submitting request: " + reqUrl);
 
-	//build JSON request
-	var reqObj = {
-		"0":{
-			"url": encodeURIComponent(url),
-			"title": encodeURIComponent(title)
+var ReadItLaterAPI = Class.create({
+	initialize: function() {
+	
+	}, 
+	
+	add: function(username, password, url, title, tags, callback) { 
+		var xhr = new XMLHttpRequest();
+		var reqUrl = ADD_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
+		//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
+		//TODO apparently RIL doesn't support anything besides http and https, check for this
+		reqUrl += '&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title);
+		reqUrl += '&tags=' + encodeURIComponent(tags); 
+		console.debug("adding URL: " + url); 
+		chrome.extension.getBackgroundPage().console.debug("adding URL: " + url);
+		chrome.extension.getBackgroundPage().console.debug("submitting request: " + reqUrl);
+		xhr.open("GET", reqUrl, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				console.log(xhr.status);
+				console.log(xhr.responseText);
+				callback(xhr.status, xhr.responseText);
+			}
 		}
-	};
- 	reqUrl += '&new=' + JSON.stringify(reqObj);
-	  
-	if (!tags.blank()) {
-		var tagsObj = {
+		xhr.send();
+	},
+	             
+	sendNewURL: function(username, password, url, title, tags, callback) {
+		var xhr = new XMLHttpRequest();
+		var reqUrl = SEND_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
+		//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
+		//TODO apparently RIL doesn't support anything besides http and https, check for this
+		chrome.extension.getBackgroundPage().console.debug("adding URL: " + url);
+		chrome.extension.getBackgroundPage().console.debug("submitting request: " + reqUrl);
+
+		//build JSON request
+		var reqObj = {
 			"0":{
 				"url": encodeURIComponent(url),
-				"tags": encodeURIComponent(tags)
+				"title": encodeURIComponent(title)
 			}
-		};                  
-		reqUrl += '&update_tags=' + JSON.stringify(tagsObj);
-	}
-	
-	chrome.extension.getBackgroundPage().console.debug("submitting URL: " + reqUrl); 
-	xhr.open("GET", reqUrl, true);
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4) {
-			console.log(xhr.status);
-			console.log(xhr.responseText);
-			callback(xhr.status, xhr.responseText);
+		};
+	 	reqUrl += '&new=' + JSON.stringify(reqObj);
+
+		if (!tags.blank()) {
+			var tagsObj = {
+				"0":{
+					"url": encodeURIComponent(url),
+					"tags": encodeURIComponent(tags)
+				}
+			};                  
+			reqUrl += '&update_tags=' + JSON.stringify(tagsObj);
 		}
+
+		chrome.extension.getBackgroundPage().console.debug("submitting URL: " + reqUrl); 
+		xhr.open("GET", reqUrl, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				console.log(xhr.status);
+				console.log(xhr.responseText);
+				callback(xhr.status, xhr.responseText);
+			}
+		}
+		xhr.send();
 	}
-	xhr.send();
-}
+});
