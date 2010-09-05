@@ -39,7 +39,12 @@ Features for 0.3 release
 - Debug page: API usage, logging on background page
 - Check user login on application start?
 - Gallery stats report
-                           
+- animated post icon
+             
+0.2.4 release
+-------------
+- [#5] fix posts for slow connections
+              
 0.2.3 release
 -------------
 - Add tags support
