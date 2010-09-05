@@ -29,17 +29,40 @@
 	function addTab() {
 		chrome.tabs.getSelected(null, 
 			function(tab) { 
-				console.debug(tab)
+				console.debug(tab);
 				add(localStorage.username, localStorage.password, tab.url, tab.title);
 				chrome.tabs.remove(tab.id, function(){
 					console.debug("closed tab" + tab.url);
 				}); 
 		});
 	}
+	
+	function createContextMenu() {
+		chrome.contextMenus.create({
+			"title": "Add to Read It Later",
+			"contexts": ["page", "link"],
+			"onclick": addFromContextMenu
+		})
+	}
+	
+	function addFromContextMenu(info, tab) {
+		if (info.linkUrl) { 
+			alert ('clicked URL: ' + info.linkUrl);       
+			//TODO figure out how to fetch title instead of just URL
+			//TODO check or http or https and error appropriately
+			add(localStorage.username, localStorage.password, info.linkUrl, info.linkUrl);  
+		}
+		else { //right clicked on page
+			alert('clicked on page: ' + info.pageUrl);
+			add(localStorage.username, localStorage.password, info.pageUrl, tab.title); 
+		}                                                                               
+		//TDODO deal with frames
+	}
 
 	function init(){
 		chrome.browserAction.onClicked.addListener(addTab);
 		api = new ReadItLaterAPI();
+		createContextMenu();
 	}
 
 	</script>               

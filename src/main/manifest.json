@@ -1,6 +1,6 @@
 {
   "name": "__MSG_pluginName__",
-  "version": "0.2.3",
+  "version": "0.3",
   "description": "__MSG_pluginDescription__",
   "background_page": "background.html",
   "browser_action": {
@@ -9,11 +9,15 @@
 	"default_title": "ChromeItLater"
   },
   "default_locale": "en",
-  "icons": { "48": "folder-library-icon_48.png",
-			 "128": "folder-library-icon_128.png" },
+  "icons": {
+ 			"16": "folder-library-icon_16.png",
+			"48": "folder-library-icon_48.png",
+			"128": "folder-library-icon_128.png" 
+			},
   "options_page": "options.html",
   "permissions": [
 	"tabs",
-    "https://readitlaterlist.com/"
+    "https://readitlaterlist.com/",
+	"contextMenus"
   ]
 }
