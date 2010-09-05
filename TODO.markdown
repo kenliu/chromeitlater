@@ -43,12 +43,7 @@ Features for 0.3 release
 
 0.2.4 release
 -------------
-- Fix bug for slow connections (#5)
-                           
 - animated post icon
-             
-0.2.4 release
--------------
 - [#5] fix posts for slow connections
               
 0.2.3 release
