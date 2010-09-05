@@ -17,6 +17,7 @@ Features for 0.4 release
 - Automatically generate release notes from LH   
 - Improved popup handling                                 
 - Basic syncing
+- Make better icons?
 - Keyboard shortcut (configurable) 
 - Save all tabs in window
 - Browse recent saved urls
@@ -44,6 +45,12 @@ Features for 0.3 release
 -------------
 - Fix bug for slow connections (#5)
                            
+- animated post icon
+             
+0.2.4 release
+-------------
+- [#5] fix posts for slow connections
+              
 0.2.3 release
 -------------
 - Add tags support
