@@ -37,24 +37,29 @@
 		});
 	}
 	
-	function createContextMenu() {
-		chrome.contextMenus.create({
-			"title": "Add to Read It Later",
-			"contexts": ["page", "link"],
-			"onclick": addFromContextMenu
-		})
+	function addWithBadgeIndicator(url, title) {
+		chrome.browserAction.setBadgeBackgroundColor({color: [255, 215, 0, 255]}); //goldenrod          
+		chrome.browserAction.setBadgeText({text: "..."});                 
+		//TODO show different icon on failure
+		//chrome.browserAction.setBadgeBackgroundColor({color: [220, 20, 60, 255]}); //crimson    
+		add(localStorage.username, localStorage.password, url, title, null, function() {
+			chrome.browserAction.setBadgeBackgroundColor({color: [0, 205, 0, 255]}); //green 3 
+			chrome.browserAction.setBadgeText({text: "OK"}); 
+			setTimeout("chrome.browserAction.setBadgeText({text: ''})", 1000) //clear badge after 1 sec
+		});  
+		
 	}
 	
 	function addFromContextMenu(info, tab) {
 		if (info.linkUrl) { 
-			alert ('clicked URL: ' + info.linkUrl);       
-			//TODO figure out how to fetch title instead of just URL
-			//TODO check or http or https and error appropriately
-			add(localStorage.username, localStorage.password, info.linkUrl, info.linkUrl);  
+			//TODO figure out how to fetch title of target instead of just URL
+			//TODO check for http or https and error appropriately
+			console.debug('right-clicked URL: ' + info.linkUrl);
+			addWithBadgeIndicator(info.linkUrl, info.linkUrl);
 		}
 		else { //right clicked on page
 			alert('clicked on page: ' + info.pageUrl);
-			add(localStorage.username, localStorage.password, info.pageUrl, tab.title); 
+			addWithBadgeIndicator(info.pageUrl, tab.title); 
 		}                                                                               
 		//TDODO deal with frames
 	}
@@ -62,8 +67,17 @@
 	function init(){
 		chrome.browserAction.onClicked.addListener(addTab);
 		api = new ReadItLaterAPI();
-		createContextMenu();
+		initContextMenu();
 	}
+	
+	function initContextMenu() {
+		chrome.contextMenus.create({
+			"title": "Add to Read It Later",
+			"contexts": ["page", "link"],
+			"onclick": addFromContextMenu
+		});
+	}                                                                               
+
 
 	</script>               
 </head>

@@ -34,6 +34,7 @@ var SEND_URL = 'https://localhost:4567'
 * @param url unencoded url text
 * @param title unencoded page title
 * @param tags unencoded tags or empty string
+* @param callback executed if call is successful
 */
 function add(username, password, url, title, tags, callback) { 
 	var xhr = new XMLHttpRequest();
@@ -41,7 +42,9 @@ function add(username, password, url, title, tags, callback) {
 	//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
 	//TODO apparently RIL doesn't support anything besides http and https, check for this
 	reqUrl += '&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title);
-	reqUrl += '&tags=' + encodeURIComponent(tags); 
+	if (tags) {
+		reqUrl += '&tags=' + encodeURIComponent(tags);		
+	}
 	console.debug("adding URL: " + url); 
 	chrome.extension.getBackgroundPage().console.debug("adding URL: " + url);
 	chrome.extension.getBackgroundPage().console.debug("submitting request: " + reqUrl);
