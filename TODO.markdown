@@ -23,7 +23,7 @@ Features for 0.4 release
 - Browse recent saved urls
 - Manage recently saved urls
 
-Features for 0.3 release
+Features for 0.4 release
 ---------------------------
 - Grayed out initial icon/validate options page
 - More descriptive error messages      
@@ -41,10 +41,14 @@ Features for 0.3 release
 - Gallery stats report
 - Browse recent posts         
 
-0.2.4 release
+0.3 release
 -------------
 - animated post icon
-- [#5] fix posts for slow connections
+- context menu
+- [#5] fix posts for slow connections        
+
+- welcome screen after update?
+- don't show empty popup if quick add mode is enabled
               
 0.2.3 release
 -------------
