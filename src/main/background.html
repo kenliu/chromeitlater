@@ -39,7 +39,8 @@
 	
 	function addWithBadgeIndicator(url, title) {
 		chrome.browserAction.setBadgeBackgroundColor({color: [255, 215, 0, 255]}); //goldenrod          
-		chrome.browserAction.setBadgeText({text: "..."});                 
+		chrome.browserAction.setBadgeText({text: "..."});           
+		//TODO update tooltip text as well      
 		//TODO show different icon on failure
 		//chrome.browserAction.setBadgeBackgroundColor({color: [220, 20, 60, 255]}); //crimson    
 		add(localStorage.username, localStorage.password, url, title, null, function() {
@@ -58,10 +59,10 @@
 			addWithBadgeIndicator(info.linkUrl, info.linkUrl);
 		}
 		else { //right clicked on page
-			alert('clicked on page: ' + info.pageUrl);
+			console.debug('clicked on page: ' + info.pageUrl);
 			addWithBadgeIndicator(info.pageUrl, tab.title); 
 		}                                                                               
-		//TDODO deal with frames
+		//TODO deal with frames
 	}
 
 	function init(){

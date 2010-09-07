@@ -24,8 +24,8 @@ var API_KEY = '51eA1g6ed8dr0oV2d3p9825X72T5L559';
 var ADD_URL = 'https://readitlaterlist.com/v2/add';
 var AUTH_URL = 'https://readitlaterlist.com/v2/auth';
 var API_URL = 'https://readitlaterlist.com/v2/api';
-//var SEND_URL = 'https://readitlaterlist.com/v2/send';
-var SEND_URL = 'https://localhost:4567'
+var SEND_URL = 'https://readitlaterlist.com/v2/send';
+//var SEND_URL = 'https://localhost:4567'
 
 //TODO add these functions into a class        
 //TODO refactor out this XHR code
@@ -111,8 +111,8 @@ var ReadItLaterAPI = Class.create({
 		}
 		xhr.send();
 	},
-	             
-	sendNewURL: function(username, password, url, title, tags, callback) {
+	    
+   sendNewURL: function(username, password, url, title, tags, callback) {
 		var xhr = new XMLHttpRequest();
 		var reqUrl = SEND_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
 		//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
