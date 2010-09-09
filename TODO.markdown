@@ -11,13 +11,12 @@ Features for 1.0 release
 - Random display
 - One click mark as read/close tab
                       
-Features for 0.4 release
+Features for 0.5 release
 --------------------------
 - Rate limiting     
 - Automatically generate release notes from LH   
 - Improved popup handling                                 
 - Basic syncing
-- Make better icons?
 - Keyboard shortcut (configurable) 
 - Save all tabs in window
 - Browse recent saved urls
@@ -25,6 +24,7 @@ Features for 0.4 release
 
 Features for 0.4 release
 ---------------------------
+- Basic Google Reader support
 - Grayed out initial icon/validate options page
 - More descriptive error messages      
 - Rudimentary help
@@ -32,7 +32,6 @@ Features for 0.4 release
 - Improved/non-ugly user notification                                                        
 - Figure out a way to automatically run jslint from command line
 - Debug screen for experimental features         
-- Rake tasks for creating distribution
 - Store plugin version
 - Centralized logging   
 - Basic shortcut keys
@@ -46,6 +45,7 @@ Features for 0.4 release
 - animated post icon
 - context menu
 - [#5] fix posts for slow connections        
+- Rake tasks for creating distribution
 
 - welcome screen after update?
 - don't show empty popup if quick add mode is enabled
