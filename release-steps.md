@@ -1,8 +1,8 @@
 Steps for release
 =================
-1. test on target versions: windows xp, windows 7, mac, linux
 1. update version on options page
 1. update version in manifest
+1. test on target versions: windows xp, windows 7, mac, linux
 1. update readme.txt
 1. update gallery-description.txt with changelog
 1. tag git version

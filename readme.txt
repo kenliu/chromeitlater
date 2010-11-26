@@ -1,12 +1,11 @@
 Google Chrome Extension for Read it Later (http://www.readitlaterlist.com)        
+                                                 
+ChromeItLater is designed for speed. Save your pages and move on.
 
-This is an unofficial Read it Later client.
+This extension features:
+- Save pages to RIL using popup
+- Save pages to RIL instantly (one click!)
+- Close current tab immediately after saving a page     
+- Save to RIL from the right-click popup menu
 
-It currently supports the following features:
-- Add to RIL using popup
-- Add to RIL instantly
-- Close current tab immediately after adding URL     
-
-WARNING WARNING WARNING:
-THIS IS A VERY EARLY RELEASE!
-It works, but don't be surprised to find bugs and lots of ugly.
+Note: This is an unofficial Read it Later client.
