@@ -50,7 +50,8 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	margin: 8px;
 } 
 
-
+        
+/** styles for recently saved in popup */
 
 #recent_urls_panel {
 	margin: 8px;
@@ -72,12 +73,19 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	font-size: .75em;
 	padding: 5px;
 }
+*/
 
 #recent_urls a,
 #recent_urls a:visited,
 #recent_urls a:active {
+	text-decoration: none;
 }
 
+#recent_urls_pager a {
+	text-decoration: none;	
+}
+
+/*
 #recent_urls a:hover {
 	
 }

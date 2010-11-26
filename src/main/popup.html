@@ -19,12 +19,14 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 <!DOCTYPE HTML>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="popup.css"/>
+	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
+	<link rel="stylesheet" type="text/css" href="popup.css" />
+	<script src="lib/prototype.js"></script> 
 	<script src="readitlater-client.js"></script>
 	<script src="common.js"></script>
-	<script src="lib/prototype.js"></script> 
 	<script type="text/javascript" charset="utf-8">
-	
+   
+    //TODO store the current page in a global var
 	var currentPage = 1;
 
 	function loaded() {
@@ -59,7 +61,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			);
 		} else {
 			populateForm();
-			showUrls();
+			loadRecentlySaved(); //TODO make this async
 		}
 
 	}
@@ -67,9 +69,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	function addInstantly() {
 		
 	}
-	
+	         
 	function populateForm() {
-		chrome.tabs.getSelected(null, 
+		chrome.tabs.getSelected(null,
 			function(tab) { 
 				console.debug(tab);
 				title.value = tab.title;
@@ -106,9 +108,16 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		);
 	}         
 
-	function showUrls() {
+	function loadRecentlySaved() {
 		var opts = {
 			'page': currentPage
+		}
+		        
+		// hide prev navigation if on first page
+		if (currentPage == 1) {
+			$('prev_page').style.visibility = 'hidden'
+		} else {
+			$('prev_page').style.visibility = 'visible'
 		}
 		
 		get(localStorage.username, localStorage.password, opts, 
@@ -131,12 +140,14 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
     
 	function nextPage(){
 		currentPage++;
-		showUrls();
+		loadRecentlySaved();
 	}
 	
 	function prevPage(){
-		currentPage--;
-		showUrls();
+		if (currentPage > 1) {
+			currentPage--;         
+		}
+		loadRecentlySaved();
 	}
 	</script>
 </head>           
@@ -155,7 +166,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		<div id="recent_urls_panel">
 			<div id="recent_urls_title"><b>Recently Saved</b></div>
 			<div id="recent_urls"></div>
-			<div id="recent_urls_pager"><a href="javascript:prevPage()">&lt;</a> <a href="javascript:nextPage()">&gt;</a></div>
+			<div id="recent_urls_pager"><a id="prev_page" href="javascript:prevPage()"><img src="img/sq_br_next.png"></a> <a id="next_page" href="javascript:nextPage()"><img src="/img/sq_pr_prev.png"></a></div>
 		</div>
 		<div id="popup_footer">
 			<a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a>

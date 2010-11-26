@@ -32,13 +32,15 @@ var GET_URL = 'https://readitlaterlist.com/v2/get';
 /**
 * @param url unencoded url text
 * @param title unencoded page title
+* @param tags unencoded tags or empty string
 */
-function add(username, password, url, title, callback) { 
+function add(username, password, url, title, tags, callback) { 
 	var xhr = new XMLHttpRequest();
 	var reqUrl = ADD_URL + '?username=' + username + '&password=' + password + '&apikey=' + API_KEY;
 	//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
 	//TODO apparently RIL doesn't support anything besides http and https, check for this
-	reqUrl += '&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title); 
+	reqUrl += '&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title);
+	reqUrl += '&tags=' + encodeURIComponent(tags); 
 	console.debug("adding URL: " + url); 
 	chrome.extension.getBackgroundPage().console.debug("adding URL: " + url);
 	chrome.extension.getBackgroundPage().console.debug("submitting request: " + reqUrl);
