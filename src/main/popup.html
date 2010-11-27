@@ -20,10 +20,14 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
-	<script src="lib/prototype.js"></script> 
-	<script src="readitlater-client.js"></script>
-	<script src="common.js"></script>
-	<script type="text/javascript" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="popup.css" />
+	<script type="text/javascript" src="lib/prototype.js"></script> 
+	<script type="text/javascript" src="readitlater-client.js"></script>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+   
+    //TODO store the current page in a global var
+	var currentPage = 1;
 
 	function loaded() {
 		if (!isInitialized() || !isLoginConfigured()) {
@@ -53,71 +57,125 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 							}
 						}
 					);
-				});
-			} else {
-				populateForm();
-			}
-		}
-
-		function populateForm() {
-			chrome.tabs.getSelected(null, 
-				function(tab) { 
-					console.debug(tab);
-					title.value = tab.title;
-					url.value = tab.url;
-				}
-			);			
-		}
-
-		function clicked() {		
-			var urlval = url.value;
-			var titleval = title.value;
-			var tagsval = tags.value;
-			popup_container.innerHTML = '<div class="popup_message">Adding URL...</div>';
-
-			//TODO this is starting to look like lisp!
-			chrome.tabs.getSelected(null, 
-				function(tab) {
-					chrome.extension.getBackgroundPage().api.sendNewURL(localStorage.username, localStorage.password, urlval, titleval, tagsval,
-						function (status, responseText) {
-							if (status == '200') {
-								popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully!</b></div>';
-								if(localStorage.close_tab === 'true'){
-									chrome.tabs.remove(tab.id, 
-										function() { console.debug("closed tab" + tab.url); }
-									);              
-								}
-							} 
-							else {
-								popup_container.innerHTML = '<div class="popup_message"><b>Error adding page</b><br/><small>' + responseText + '</small></div>';
-							}
-							window.setTimeout(function() { window.close(); }, 1500);
-						}
-					);
 				}
 			);
-		}    
+		} else {
+			populateForm();
+			loadRecentlySaved(); //TODO make this async
+		}
 
-		</script>
-	</head>           
+	}
+    
+	function addInstantly() {
+		
+	}
+	         
+	function populateForm() {
+		chrome.tabs.getSelected(null,
+			function(tab) { 
+				console.debug(tab);
+				title.value = tab.title;
+				url.value = tab.url;
+			}
+		);			
+	}
 
-	<body id="popup" onload="loaded()">
-			<div id="popup_container">
-				<div id="header" style="margin: 8px;">
-					<b>ChromeItLater</b>	
-				</div>
-				<div id="add_panel">
-					<label for="title">Title</label><br/><input type="text" name="title" value="" id="title" size="50"><br/>
-					<label for="url">URL</label><br/><input type="text" name="url" value="" id="url" size="50"><br/>
-					<label for="tags">Tags <i>(comma-separated)</i></label><br/><input type="text" name="tags" value="" id="tags" size="50"><br/>
-					<button onClick="clicked()">Add</button>
-				</div>
-				<div id="popup_footer">
-					<a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a>
-					<a href="http://www.readitlaterlist.com/read" target="ril_read">read</a>
-					<a href="http://www.readitlaterlist.com/d" target="ril_digest">digest</a>
-					<a href="help/index.html" target="cil_help">help</a>
-				</div>
-			</div>
-		</body>
-		</html>
+	function clicked() {		
+		var urlval = url.value;
+		var titleval = title.value;
+		var tagsval = tags.value;
+		popup_container.innerHTML = '<div class="popup_message">Adding URL...</div>';
+
+		//TODO this is starting to look like lisp!
+		chrome.tabs.getSelected(null, 
+			function(tab) {
+				chrome.extension.getBackgroundPage().api.sendNewURL(localStorage.username, localStorage.password, urlval, titleval, tagsval,
+					function (status, responseText) {
+						if (status == '200') {
+							popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully!</b></div>';
+							if(localStorage.close_tab === 'true'){
+								chrome.tabs.remove(tab.id, 
+									function() { console.debug("closed tab" + tab.url); }
+								);              
+							}
+						} 
+						else {
+							popup_container.innerHTML = '<div class="popup_message"><b>Error adding page</b><br/><small>' + responseText + '</small></div>';
+						}
+						window.setTimeout(function() { window.close(); }, 1500);
+					}
+				);
+			}
+		);
+	}         
+
+	function loadRecentlySaved() {
+		var opts = {
+			'page': currentPage
+		}
+		        
+		// hide prev navigation if on first page
+		if (currentPage == 1) {
+			$('prev_page').style.visibility = 'hidden'
+		} else {
+			$('prev_page').style.visibility = 'visible'
+		}
+		
+		get(localStorage.username, localStorage.password, opts, 
+			function(xhr) {
+				var response = JSON.parse(xhr.responseText);
+				console.log(response);
+				var urls = response.list;
+				//if (urls.length > 0) {
+					var html = '<ul>';
+					for (propertyName in urls) { 
+						var url = urls[propertyName];					
+						html += '<li><a href="' + url.url +  '" target="new">' + url.title + '</a></li>';
+					}                     
+					html += '</ul>';
+					recent_urls.innerHTML = html;  		
+				//}
+			}
+		);
+	}
+    
+	function nextPage(){
+		currentPage++;
+		loadRecentlySaved();
+	}
+	
+	function prevPage(){
+		if (currentPage > 1) {
+			currentPage--;         
+		}
+		loadRecentlySaved();
+	}
+	</script>
+</head>           
+
+<body id="popup" onload="loaded()">
+	<div id="popup_container">
+		<div id="header" style="margin: 8px;font-family: 'Droid Sans', arial, serif;">
+			<b>ChromeItLater</b>	
+		</div>
+		<div id="add_panel">
+			<label for="title">Title</label><br/><input type="text" name="title" value="" id="title" size="50"><br/>
+			<label for="url">URL</label><br/><input type="text" name="url" value="" id="url" size="50"><br/>
+			<label for="tags">Tags <i>(comma-separated)</i></label><br/><input type="text" name="tags" value="" id="tags" size="50"><br/>
+			<button onClick="clicked()">Add</button>
+		</div>
+		<hr/>
+		<div id="recent_urls_panel">
+			<div id="recent_urls_title"><b>Recently Saved</b></div>
+			<div id="recent_urls"></div>
+			<div id="recent_urls_pager"><a id="prev_page" href="javascript:prevPage()"><img src="img/sq_br_prev.png"></a> <a id="next_page" href="javascript:nextPage()"><img src="/img/sq_br_next.png"></a></div>
+		</div>
+		<div id="popup_footer">
+			<a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a>
+			<a href="http://www.readitlaterlist.com/read" target="ril_read">read</a>
+			<a href="http://www.readitlaterlist.com/d" target="ril_blank">digest</a>
+			<a href="help/index.html" target="cil_help">help</a>
+		</div>
+	</div>
+</body>
+</html>

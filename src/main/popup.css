@@ -1,0 +1,124 @@
+/* 
+Copyright 2010 Kenneth Liu.
+
+This file is part of ChromeItLater.
+
+ChromeItLater is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+any later version.
+
+ChromeItLater is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/**************************
+* Styles for the popup
+***************************/
+
+#popup {
+	font-family: 'Droid Sans', arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	border-style: solid; 
+	border-width: 1px;
+	border-color: #333333; 
+	border-radius: 5px;
+}
+
+#popup_container {
+}      
+
+#add_panel {
+	margin: 8px;
+}
+
+#popup label {
+	font-size: .75em;
+}
+
+#popup input {
+	margin-bottom: 5px;
+}
+
+.popup_message {
+	margin: 8px;
+} 
+
+        
+/** styles for recently saved in popup */
+
+#recent_urls_panel {
+	margin: 8px;
+}
+
+#recent_urls_panel ul {
+	padding: 0;
+	margin: 0;
+}
+
+#recent_urls_panel li {
+	list-style-type: none;
+	padding: .25em;
+	font-size: .75em;
+}
+
+/*                         
+#recent_urls {
+	font-size: .75em;
+	padding: 5px;
+}
+*/
+
+#recent_urls a,
+#recent_urls a:visited,
+#recent_urls a:active {
+	text-decoration: none;
+}
+
+#recent_urls_pager a {
+	text-decoration: none;	
+}
+
+/*
+#recent_urls a:hover {
+	
+}
+*/
+
+/** styles for the footer in the popup */
+#popup_footer {
+	margin: 0;
+	padding: 5px;
+	font-size: .75em;
+	background-color: #333333;
+	/** float: left; */
+	/** width: 100%; */
+}  
+
+#popup_footer ul {
+	margin: 0;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#popup_footer li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+#popup_footer a,
+#popup_footer a:visited,
+#popup_footer a:hover,
+#popup_footer a:active {
+	color: lightgray;
+	padding: 5px;
+	text-decoration: none;
+}
