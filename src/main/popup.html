@@ -126,15 +126,16 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 				var response = JSON.parse(xhr.responseText);
 				console.log(response);
 				var urls = response.list;
-				//if (urls.length > 0) {
+				if (!Object.isArray(urls)) { //RIL API returns an empty array if there are no more pages
 					var html = '<ul>';
+					//TODO sort urls by time desc
 					for (propertyName in urls) { 
 						var url = urls[propertyName];					
 						html += '<li><a href="' + url.url +  '" target="new">' + url.title + '</a></li>';
 					}                     
 					html += '</ul>';
 					recent_urls.innerHTML = html;  		
-				//}
+				}
 			}
 		);
 	}
