@@ -19,7 +19,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 <!DOCTYPE HTML>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
+   	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
 	<link rel="stylesheet" type="text/css" href="popup.css" />
 	<script type="text/javascript" src="lib/prototype.js"></script> 
 	<script type="text/javascript" src="readitlater-client.js"></script>
@@ -27,7 +27,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	<script type="text/javascript">
    
     //TODO store the current page in a global var
-	var currentPage = 1;
+	var CURRENT_PAGE = 1;
 
 	function loaded() {
 		if (!isInitialized() || !isLoginConfigured()) {
@@ -64,10 +64,6 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			loadRecentlySaved(); //TODO make this async
 		}
 
-	}
-    
-	function addInstantly() {
-		
 	}
 	         
 	function populateForm() {
@@ -111,11 +107,11 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 
 	function loadRecentlySaved() {
 		var opts = {
-			'page': currentPage
+			'page': CURRENT_PAGE
 		}
 		        
 		// hide prev navigation if on first page
-		if (currentPage == 1) {
+		if (CURRENT_PAGE == 1) {
 			$('prev_page').style.visibility = 'hidden'
 		} else {
 			$('prev_page').style.visibility = 'visible'
@@ -135,19 +131,21 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 					}                     
 					html += '</ul>';
 					recent_urls.innerHTML = html;  		
+				} else {
+					CURRENT_PAGE--; //not very elegant way to prevent from paging forward
 				}
 			}
 		);
 	}
     
 	function nextPage(){
-		currentPage++;
+		CURRENT_PAGE++;
 		loadRecentlySaved();
 	}
 	
 	function prevPage(){
-		if (currentPage > 1) {
-			currentPage--;         
+		if (CURRENT_PAGE > 1) {
+			CURRENT_PAGE--;         
 		}
 		loadRecentlySaved();
 	}
@@ -156,7 +154,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 
 <body id="popup" onload="loaded()">
 	<div id="popup_container">
-		<div id="header" style="margin: 8px;font-family: 'Droid Sans', arial, serif;">
+		<div id="header">
 			<b>ChromeItLater</b>	
 		</div>
 		<div id="add_panel">
@@ -167,9 +165,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		</div>
 		<hr/>
 		<div id="recent_urls_panel">
+			<div id="recent_urls_pager"><a id="prev_page" href="javascript:prevPage()"><img src="img/sq_br_prev.png"></a> <a id="next_page" href="javascript:nextPage()"><img src="/img/sq_br_next.png"></a></div>
 			<div id="recent_urls_title"><b>Recently Saved</b></div>
 			<div id="recent_urls"></div>
-			<div id="recent_urls_pager"><a id="prev_page" href="javascript:prevPage()"><img src="img/sq_br_prev.png"></a> <a id="next_page" href="javascript:nextPage()"><img src="/img/sq_br_next.png"></a></div>
 		</div>
 		<div id="popup_footer">
 			<a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a>

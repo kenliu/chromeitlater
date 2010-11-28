@@ -22,7 +22,6 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 ***************************/
 
 #popup {
-	font-family: 'Droid Sans', arial, sans-serif;
 	margin: 0px;
 	padding: 0px;
 	border-style: solid; 
@@ -32,6 +31,10 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 }
 
 #popup_container {
+}
+
+#header {
+	margin: 8px;
 }      
 
 #add_panel {
@@ -75,13 +78,20 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 }
 */
 
-#recent_urls a,
 #recent_urls a:visited,
 #recent_urls a:active {
 	text-decoration: none;
 }
 
-#recent_urls_pager a {
+#recent_urls a:hover {
+	text-decoration: underline;
+}
+ 
+#recent_urls_pager {
+	float: right;	
+}
+
+#recent_urls_pager a { 
 	text-decoration: none;	
 }
 
