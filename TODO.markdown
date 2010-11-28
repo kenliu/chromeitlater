@@ -20,7 +20,7 @@ Features for 0.5 release
 - Keyboard shortcut (configurable) 
 - Save all tabs in window
 - Browse recent saved urls
-- Manage recently saved urls
+- Manage recently saved urls           
 
 Features for 0.4 release
 ---------------------------
@@ -38,7 +38,7 @@ Features for 0.4 release
 - Debug page: API usage, logging on background page
 - Check user login on application start?
 - Gallery stats report
-- Browse recent posts         
+- Handle bad passwords
 
 0.3 release
 -------------
@@ -46,6 +46,7 @@ Features for 0.4 release
 - context menu
 - [#5] fix posts for slow connections        
 - Rake tasks for creating distribution
+- Browse recent posts         
 
 - welcome screen after update?
 - don't show empty popup if quick add mode is enabled
