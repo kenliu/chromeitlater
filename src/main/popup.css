@@ -22,8 +22,8 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 ***************************/
 
 #popup {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 	border-style: solid; 
 	border-width: 1px;
 	border-color: #333333; 
@@ -57,6 +57,10 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 /** styles for recently saved in popup */
 
 #recent_urls_panel {
+	border-top: 1px solid black;
+}
+
+#recent_urls_panel #recent_urls_title {
 	margin: .5em;
 }
 
@@ -72,12 +76,11 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	/*height: 2em;*/
 }
 
-/*                         
+                        
 #recent_urls {
-	font-size: .75em;
-	padding: 5px;
+	margin: .5em;
 }
-*/
+
 
 #recent_urls a:visited,
 #recent_urls a:active {
@@ -89,6 +92,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 }
  
 #recent_urls_pager {
+	margin: .5em; /* same as #recent_urls_title */
 	float: right;	
 }
 
