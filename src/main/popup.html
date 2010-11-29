@@ -126,8 +126,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 					var html = '<ul>';
 					//TODO sort urls by time desc
 					for (propertyName in urls) { 
-						var url = urls[propertyName];					
-						html += '<li><a href="' + url.url +  '" target="new">' + url.title + '</a></li>';
+						var it = urls[propertyName];
+						var linktext = (it.title != "") ? it.title : it.url
+						html += '<li><a title="' + it.url + '" href="' + it.url + '" target="new">' + linktext + '</a></li>';
 					}                     
 					html += '</ul>';
 					recent_urls.innerHTML = html;  		
