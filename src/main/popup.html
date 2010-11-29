@@ -41,7 +41,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			chrome.tabs.getSelected(null, 
 				function(tab) { 
 					console.debug(tab);
-					add(localStorage.username, localStorage.password, tab.url, tab.title, 
+					chrome.extension.getBackgroundPage().api.add(localStorage.username, localStorage.password, tab.url, tab.title, 
 						function (status, responseText) {
 							if (status == '200') {
 								if(localStorage.close_tab === 'true') {

@@ -39,6 +39,7 @@ Features for 0.4 release
 - Check user login on application start?
 - Gallery stats report
 - Handle bad passwords
+- Load favicons for recently saved
 
 0.3 release
 -------------
