@@ -27,18 +27,18 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	border-style: solid; 
 	border-width: 1px;
 	border-color: #333333; 
-	border-radius: 5px;
+	border-radius: .25em;
 }
 
 #popup_container {
 }
 
 #header {
-	margin: 8px;
+	margin: .5em;
 }      
 
 #add_panel {
-	margin: 8px;
+	margin: .5em;
 }
 
 #popup label {
@@ -57,7 +57,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 /** styles for recently saved in popup */
 
 #recent_urls_panel {
-	margin: 8px;
+	margin: .5em;
 }
 
 #recent_urls_panel ul {
@@ -69,6 +69,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	list-style-type: none;
 	padding: .25em;
 	font-size: .75em;
+	/*height: 2em;*/
 }
 
 /*                         
@@ -114,8 +115,8 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 #popup_footer ul {
 	margin: 0;
 	text-align: center;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: .25em;
+	padding-bottom: .25em;
 }
 
 #popup_footer li {
@@ -129,6 +130,6 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 #popup_footer a:hover,
 #popup_footer a:active {
 	color: lightgray;
-	padding: 5px;
+	padding: .25em;
 	text-decoration: none;
 }
