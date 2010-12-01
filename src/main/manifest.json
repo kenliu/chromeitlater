@@ -14,6 +14,10 @@
 			"48": "folder-library-icon_48.png",
 			"128": "folder-library-icon_128.png" 
 			},
+<<<<<<< HEAD
+=======
+  "minimum_chrome_version": "5.0.316.0",
+>>>>>>> master
   "options_page": "options.html",
   "permissions": [
 	"tabs",
