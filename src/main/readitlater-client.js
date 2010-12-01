@@ -30,33 +30,6 @@ var GET_URL = 'https://readitlaterlist.com/v2/get';
 //TODO add these functions into a class        
 //TODO refactor out this XHR code
                     
-//TODO refactor this duplicate add function
-/**
-* @param url unencoded url text
-* @param title unencoded page title
-* @param tags unencoded tags or empty string
-*/
-function add(username, password, url, title, tags, callback) { 
-	var xhr = new XMLHttpRequest();
-	var reqUrl = buildReqUrl(ADD_URL, username, password); ;
-	//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
-	//TODO apparently RIL doesn't support anything besides http and https, check for this
-	reqUrl += '&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title);
-	reqUrl += '&tags=' + encodeURIComponent(tags); 
-	console.debug("adding URL: " + url); 
-	chrome.extension.getBackgroundPage().console.debug("adding URL: " + url);
-	chrome.extension.getBackgroundPage().console.debug("submitting request: " + reqUrl);
-	xhr.open("GET", reqUrl, true);
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4) {
-			console.log(xhr.status);
-			console.log(xhr.responseText);
-			callback(xhr.status, xhr.responseText);
-		}
-	}
-	xhr.send();
-}
-
 function auth(username, password) {
 	var xhr = new XMLHttpRequest();
 	var url = buildReqUrl(AUTH_URL, username, password);  
@@ -104,6 +77,11 @@ var ReadItLaterAPI = Class.create({
 	
 	}, 
 	
+	/**
+	* @param url unencoded url text
+	* @param title unencoded page title
+	* @param tags unencoded tags or empty string
+	*/
 	add: function(username, password, url, title, tags, callback) { 
 		var xhr = new XMLHttpRequest();
 		var reqUrl = buildReqUrl(ADD_URL, username, password);
