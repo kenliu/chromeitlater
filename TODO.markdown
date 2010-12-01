@@ -41,7 +41,8 @@ Features for 0.4 release
 - Handle bad passwords
 
 0.3 release
--------------
+------------- 
+- TODO finish testing #6
 - animated post icon
 - context menu
 - [#5] fix posts for slow connections        
