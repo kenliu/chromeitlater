@@ -1,14 +1,13 @@
 Features for 2.0 release
 --------------------------
 - Google Reader support
-
+- Local reading (text version)
 
 Features for 1.0 release
 --------------------------
-- Check out GetSatisfaction/UserVoice/other for user support 
 - Check Chrome version
 - Create local branch for binaries
-- Random display
+- Display random link?
 - One click mark as read/close tab
                       
 Features for 0.5 release
@@ -19,7 +18,6 @@ Features for 0.5 release
 - Basic syncing
 - Keyboard shortcut (configurable) 
 - Save all tabs in window
-- Browse recent saved urls
 - Manage recently saved urls           
 
 Features for 0.4 release
@@ -39,6 +37,14 @@ Features for 0.4 release
 - Check user login on application start?
 - Gallery stats report
 - Handle bad passwords
+- welcome screen after update?    
+- de-uglify options page
+         
+0.3.1 release
+-------------
+- clean up API
+- add jQuery
+- (check on API throttling)
 - Load favicons for recently saved
 
 0.3 release
@@ -49,9 +55,8 @@ Features for 0.4 release
 - [#5] fix posts for slow connections        
 - Rake tasks for creating distribution
 - Browse recent posts         
-
-- welcome screen after update?
 - don't show empty popup if quick add mode is enabled
+- Browse recent saved urls
               
 0.2.3 release
 -------------
@@ -62,7 +67,6 @@ Features for 0.4 release
 - Link to help
 - Updated style
 - Add links in popup footer to RIL
-
 
 0.2.1 release
 -------------
