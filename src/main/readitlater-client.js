@@ -89,7 +89,6 @@ var ReadItLaterAPI = Class.create({
 		//TODO apparently RIL doesn't support anything besides http and https, check for this
 		reqUrl += '&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title);
 		reqUrl += '&tags=' + encodeURIComponent(tags); 
-		console.debug("adding URL: " + url); 
 		chrome.extension.getBackgroundPage().console.debug("adding URL: " + url);
 		chrome.extension.getBackgroundPage().console.debug("submitting request: " + reqUrl);
 		xhr.open("GET", reqUrl, true);
