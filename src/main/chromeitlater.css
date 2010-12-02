@@ -17,14 +17,16 @@ You should have received a copy of the GNU General Public License
 along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-   
-h2 {
-	font-family: 'Droid Sans', arial, serif;
+/* @import url(http://fonts.googleapis.com/css?family=Arimo&subset=latin);
+*/
+
+body {
+	font-family: arial, sans-serif;
 }
 
    
 fieldset {
-	border-radius: .5em;
+	border-radius: .25em;
 }
 
 

@@ -5,7 +5,6 @@
   "background_page": "background.html",
   "browser_action": {
     "default_icon": "folder-library-icon_32.png",
-	"popup": "popup.html",
 	"default_title": "ChromeItLater"
   },
   "default_locale": "en",

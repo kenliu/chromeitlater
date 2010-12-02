@@ -36,36 +36,8 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			return;
 		}		
 
-		if (localStorage.add_instantly === 'true') {
-			popup_container.innerHTML = ''; //clear the popup so we don't see an empty form briefly
-			chrome.tabs.getSelected(null, 
-				function(tab) { 
-					console.debug(tab);
-					chrome.extension.getBackgroundPage().api.add(localStorage.username, localStorage.password, tab.url, tab.title, 
-						function (status, responseText) {
-							if (status == '200') {
-								if(localStorage.close_tab === 'true') {
-									chrome.tabs.remove(tab.id, 
-										function() { console.debug("closed tab" + tab.url); }
-									);              
-								}
-								popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully!</b></div>';
-								//window.setTimeout(function() { window.close(); }, 1500);
-								//window.close(); //TODO we shouldn't have to close the form because the popup really shouldn't be visible in the first place - newer chrome builds will allow override of popup so this logic will move elsewhere
-							} 
-							else {
-								popup_container.innerHTML = '<div class="popup_message"><b>Error adding page</b><br/><small>' + responseText + '</small></div>';
-								window.setTimeout(function() { window.close(); }, 1500);
-							}
-						}
-					);
-				}
-			);
-		} else {
-			populateForm();
-			loadRecentlySaved(); //TODO make this async
-		}
-
+   		populateForm();
+		loadRecentlySaved(); //TODO make this async
 	}
 	         
 	function populateForm() {
@@ -91,11 +63,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 					function (status, responseText) {
 						if (status == '200') {
 							popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully!</b></div>';
-							if(localStorage.close_tab === 'true'){
-								chrome.tabs.remove(tab.id, 
-									function() { console.debug("closed tab" + tab.url); }
-								);              
-							}
+							closeTabIfConfigured(tab);
 						} 
 						else {
 							popup_container.innerHTML = '<div class="popup_message"><b>Error adding page</b><br/><small>' + responseText + '</small></div>';

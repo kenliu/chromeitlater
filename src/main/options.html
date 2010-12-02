@@ -41,7 +41,8 @@ function saveOptions() {
 	localStorage[ADD_INSTANTLY] = add_instantly.checked;
 
 	console.debug('saved: ' + username.value + '/' + password.value);
-
+    
+	chrome.extension.getBackgroundPage().initPopup();
 	flash('Options saved.');
 }
 

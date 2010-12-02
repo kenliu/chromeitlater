@@ -18,24 +18,21 @@
 -->
 <html>
 <head>
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans&subset=latin' rel='stylesheet' type='text/css'>
-	<script src="lib/prototype.js" type="text/javascript"></script>
-	<script type="text/javascript" src="readitlater-client.js"></script> 
+	<link href='http://fonts.googleapis.com/css?family=Arimo&subset=latin' rel='stylesheet' type='text/css'>
+	<script src="lib/prototype.js"></script>
+	<script src="common.js"></script>
+	<script src="readitlater-client.js"></script> 
 	<script>                                  
 	
 	var api;
 
-		//TODO this is currently never invoked because of the popup
-		//the Extensions API will provide a workaround for this	
 	function addTab() {
 		chrome.tabs.getSelected(null, 
 			function(tab) { 
 				console.debug(tab);
-				add(localStorage.username, localStorage.password, tab.url, tab.title);
-				chrome.tabs.remove(tab.id, function(){
-					console.debug("closed tab" + tab.url);
-				}); 
-		});
+				addWithBadgeIndicator(tab.url, tab.title);
+			}                                            
+		);
 	}
 	
 	function addWithBadgeIndicator(url, title) {
@@ -44,10 +41,13 @@
 		//TODO update tooltip text as well      
 		//TODO show different icon on failure
 		//chrome.browserAction.setBadgeBackgroundColor({color: [220, 20, 60, 255]}); //crimson    
-		add(localStorage.username, localStorage.password, url, title, null, function() {
+		api.add(localStorage.username, localStorage.password, url, title, null, function() {
 			chrome.browserAction.setBadgeBackgroundColor({color: [0, 205, 0, 255]}); //green 3 
 			chrome.browserAction.setBadgeText({text: "OK"}); 
-			setTimeout("chrome.browserAction.setBadgeText({text: ''})", 1000) //clear badge after 1 sec
+			setTimeout("chrome.browserAction.setBadgeText({text: ''})", 1500) //clear badge after timeout
+			chrome.tabs.getSelected(null, 
+				function(tab) { closeTabIfConfigured(tab); }
+			);
 		});  
 		
 	}
@@ -67,9 +67,18 @@
 	}
 
 	function init(){
-		//chrome.browserAction.onClicked.addListener(addTab);
+		chrome.browserAction.onClicked.addListener(addTab); //set callback for button click
 		api = new ReadItLaterAPI();
+		initPopup();
 		initContextMenu();
+	}                 
+	
+	function initPopup(){
+		if (localStorage.add_instantly === 'true') {
+			chrome.browserAction.setPopup({"popup": ''});
+		} else {
+			chrome.browserAction.setPopup({"popup": 'popup.html'});
+		}
 	}
 	
 	function initContextMenu() {

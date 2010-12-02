@@ -30,4 +30,12 @@ function isLoginConfigured() {
 	var storedUsername = localStorage[USERNAME_KEY];
 	var storedPassword = localStorage[PASSWORD_KEY];
 	return (!storedUsername || !storedPassword) ? false : true;
+}            
+
+function closeTabIfConfigured(tab){
+	if(localStorage.close_tab === 'true'){
+		chrome.tabs.remove(tab.id, 
+			function() { console.debug("closed tab" + tab.url); }
+		);              
+	}
 }
