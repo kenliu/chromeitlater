@@ -19,6 +19,7 @@
   "permissions": [
 	"tabs",
     "https://readitlaterlist.com/",
+    "chrome://favicon/",
 	"contextMenus"
   ]
 }
