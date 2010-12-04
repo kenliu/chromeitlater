@@ -8,9 +8,10 @@ This extension features:
 - Save page to RIL using popup
 - Save page to RIL instantly (one click to save a page)
 - Close current tab immediately after saved page
-- View list of recently saved pages               
+- Save instantly by right-clicking on a page or link (NEW)
+- View list of recently saved pages (NEW)
 
-You'll need to set up a Read it Later account before using this extension. Once you have an account, be sure to set up the Read it Later username and password in the extension options screen. (Right-click the blue ChromeItLater button for the options screen.)
+You'll need to set up a Read it Later account before using this extension. Once you have an account, set up the Read it Later username and password in the extension options screen. (Right-click the blue ChromeItLater icon to get to the options screen.)
 
 Please send feedback to chromeitlater@gmail.com.
 

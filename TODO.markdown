@@ -1,7 +1,8 @@
 Features for 2.0 release
 --------------------------
 - Google Reader support
-- Local reading (text version)
+- Local reading (text version)       
+- Automatically create new user
 
 Features for 1.0 release
 --------------------------
@@ -46,6 +47,7 @@ Features for 0.4 release
 - add jQuery
 - (check on API throttling)
 - Load favicons for recently saved
+- Fade out options flash area after save
 
 0.3 release
 ------------- 
