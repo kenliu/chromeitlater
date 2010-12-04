@@ -38,17 +38,25 @@
 	function addWithBadgeIndicator(url, title) {
 		chrome.browserAction.setBadgeBackgroundColor({color: [255, 215, 0, 255]}); //goldenrod          
 		chrome.browserAction.setBadgeText({text: "..."});           
-		//TODO update tooltip text as well      
 		//TODO show different icon on failure
-		//chrome.browserAction.setBadgeBackgroundColor({color: [220, 20, 60, 255]}); //crimson    
-		api.add(localStorage.username, localStorage.password, url, title, null, function() {
-			chrome.browserAction.setBadgeBackgroundColor({color: [0, 205, 0, 255]}); //green 3 
-			chrome.browserAction.setBadgeText({text: "OK"}); 
-			setTimeout("chrome.browserAction.setBadgeText({text: ''})", 1500) //clear badge after timeout
-			chrome.tabs.getSelected(null, 
-				function(tab) { closeTabIfConfigured(tab); }
-			);
-		});  
+		chrome.browserAction.setTitle({"title": "ChromeItLater"});
+		api.add(localStorage.username, localStorage.password, url, title, null, 
+			function(status, responseText) {
+				if (status == 200) {
+					chrome.browserAction.setBadgeBackgroundColor({color: [0, 205, 0, 255]}); //green 3 
+					chrome.browserAction.setBadgeText({text: "OK"}); 
+					setTimeout("chrome.browserAction.setBadgeText({text: ''})", 1500) //clear badge after timeout
+					chrome.tabs.getSelected(null, 
+						function(tab) { closeTabIfConfigured(tab); }
+					);                  
+				} else {
+					chrome.browserAction.setBadgeBackgroundColor({color: [220, 20, 60, 255]}); //crimson 
+					chrome.browserAction.setBadgeText({text: " X "});
+					chrome.browserAction.setTitle({"title": "Error: " + responseText});
+					//TODO set icon background color 
+				}
+			}
+		);  
 		
 	}
 	
