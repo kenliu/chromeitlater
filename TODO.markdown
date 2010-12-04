@@ -19,7 +19,8 @@ Features for 0.5 release
 - Basic syncing
 - Keyboard shortcut (configurable) 
 - Save all tabs in window
-- Manage recently saved urls           
+- Manage recently saved urls  
+- Improved a11y         
 
 Features for 0.4 release
 ---------------------------
@@ -28,7 +29,6 @@ Features for 0.4 release
 - More descriptive error messages      
 - Rudimentary help
 - Add unit tests
-- Improved/non-ugly user notification                                                        
 - Figure out a way to automatically run jslint from command line
 - Debug screen for experimental features         
 - Store plugin version
@@ -40,6 +40,7 @@ Features for 0.4 release
 - Handle bad passwords
 - welcome screen after update?    
 - de-uglify options page
+- Improved/non-ugly user notification                                                        
          
 0.3.1 release
 -------------
@@ -47,18 +48,22 @@ Features for 0.4 release
 - add jQuery
 - (check on API throttling)
 - Load favicons for recently saved
-- Fade out options flash area after save
+- Fade out options flash area after save  
+- verify domain
+- use same user notification for instant add and slow add
+- TODO finish testing #6
+- Rake tasks for creating distribution
+- Nicer fonts (font-face)
+- Add spinner for loading recently saved
+- Google Analytics?
 
 0.3 release
 ------------- 
-- TODO finish testing #6
 - animated post icon
 - context menu
 - [#5] fix posts for slow connections        
-- Rake tasks for creating distribution
 - Browse recent posts         
 - don't show empty popup if quick add mode is enabled
-- Browse recent saved urls
               
 0.2.3 release
 -------------

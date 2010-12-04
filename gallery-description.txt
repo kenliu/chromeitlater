@@ -7,13 +7,13 @@ Read it Later (RIL) is a web site that saves pages for you to read later from th
 This extension features:
 - Save page to RIL using popup
 - Save page to RIL instantly (one click to save a page)
-- Close current tab immediately after saved page
+- Close current tab immediately after saving page
 - Save instantly by right-clicking on a page or link (NEW)
 - View list of recently saved pages (NEW)
 
 You'll need to set up a Read it Later account before using this extension. Once you have an account, set up the Read it Later username and password in the extension options screen. (Right-click the blue ChromeItLater icon to get to the options screen.)
 
-Please send feedback to chromeitlater@gmail.com.
+Please send feedback or support requests to chromeitlater@gmail.com.
 
 Version History:
 - 0.3 (11-28-2010) View list of recently saved pages
