@@ -11,6 +11,10 @@ This extension features:
 - Save instantly by right-clicking on a page or link (NEW)
 - View list of recently saved pages (NEW)
 
+*** Security notice for people who are upgrading from 0.2.3 ***
+Chrome automatically warns you and disables the extension because the new version requires additional access for right-click context menus, favicons (site icons), and desktop notifications. None of these gives the extension additional access to your personal data and are no cause for concern.
+*************************************************************************
+
 You'll need to set up a Read it Later account before using this extension. Once you have an account, set up the Read it Later username and password in the extension options screen. (Right-click the blue ChromeItLater icon to get to the options screen.)
 
 Please send feedback or support requests to chromeitlater@gmail.com.

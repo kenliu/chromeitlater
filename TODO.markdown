@@ -56,6 +56,7 @@ Features for 0.4 release
 - Nicer fonts (font-face)
 - Add spinner for loading recently saved
 - Google Analytics?
+- Enter key for add form
 
 0.3 release
 ------------- 
