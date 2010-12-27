@@ -95,8 +95,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 				console.log(response);
 				var urls = response.list;
 				if (!Object.isArray(urls)) { //RIL API returns an empty array if there are no more pages
+					
+
 					var html = '<ul>';
-					//TODO sort urls by time desc, RIL API doesn't sort properly
 					for (propertyName in urls) { 
 						var it = urls[propertyName];
 						var linktext = (it.title != "") ? it.title : (it.url.substring(0, Math.min(50, it.url.length))) //show URL if no title, truncate if necessary 
