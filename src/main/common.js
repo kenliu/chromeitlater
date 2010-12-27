@@ -38,4 +38,12 @@ function closeTabIfConfigured(tab){
 			function() { console.debug("closed tab" + tab.url); }
 		);              
 	}
+}    
+
+function shouldCloseTabs() {     
+	if (localStorage.close_tab == 'true') {
+		return true;
+	} else {
+		return false;
+	}
 }
