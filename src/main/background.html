@@ -30,12 +30,12 @@
 		chrome.tabs.getSelected(null, 
 			function(tab) { 
 				console.debug(tab);
-				addWithBadgeIndicator(tab.url, tab.title, shouldCloseTabs());
+				addWithBadgeIndicator(tab.url, tab.title, defaultTabCloseHandler);
 			}                                            
 		);
 	}
 	
-	function addWithBadgeIndicator(url, title, closetab) {
+	function addWithBadgeIndicator(url, title, tabCloseHandler) {
 		chrome.browserAction.setBadgeBackgroundColor({color: [255, 215, 0, 255]}); //goldenrod          
 		chrome.browserAction.setBadgeText({text: "..."});           
 		//TODO show different icon on failure
@@ -46,15 +46,11 @@
 					chrome.browserAction.setBadgeBackgroundColor({color: [0, 205, 0, 255]}); //green 3 
 					chrome.browserAction.setBadgeText({text: "OK"}); 
 					setTimeout("chrome.browserAction.setBadgeText({text: ''})", 1500) //clear badge after timeout
-					if (closetab == true) { 
-						chrome.tabs.getSelected(null, 
-							function(tab) {
-								chrome.tabs.remove(tab.id, 
-									function() { console.debug("closed tab" + tab.url); }
-								);							
-							}
-						);  
-					}                
+					chrome.tabs.getSelected(null, 
+					 	function(tab) {
+							tabCloseHandler(tab);
+						}
+					);
 				} else {
 					chrome.browserAction.setBadgeBackgroundColor({color: [220, 20, 60, 255]}); //crimson 
 					chrome.browserAction.setBadgeText({text: " X "});
@@ -67,15 +63,15 @@
 	}
 	
 	function addFromContextMenu(info, tab) {
-		if (info.linkUrl) { 
+		if (info.linkUrl) { //right-clicked on a link
 			//TODO figure out how to fetch title of target instead of just URL
 			//TODO check for http or https and error appropriately
 			console.debug('right-clicked URL: ' + info.linkUrl);
-			addWithBadgeIndicator(info.linkUrl, info.linkUrl, false);
+			addWithBadgeIndicator(info.linkUrl, info.linkUrl, function() {});
 		}
-		else { //right clicked on page
-			console.debug('clicked on page: ' + info.pageUrl);
-			addWithBadgeIndicator(info.pageUrl, tab.title, shouldCloseTabs()); 
+		else { //right-clicked on page
+			console.debug('right-clicked on page: ' + info.pageUrl);
+			addWithBadgeIndicator(info.pageUrl, tab.title, defaultTabCloseHandler); 
 		}                                                                               
 		//TODO deal with frames
 	}

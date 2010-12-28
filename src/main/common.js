@@ -46,4 +46,19 @@ function shouldCloseTabs() {
 	} else {
 		return false;
 	}
+}          
+
+var defaultTabCloseHandler = function(tab) {
+	//console.debug('called tabclosehandler');
+	if (!shouldCloseTabs()) {
+		return;
+    }
+	 
+	if (tab.pinned == true) { //pinned only available in Chrome 9+
+		return;
+	}          
+
+	chrome.tabs.remove(tab.id, 
+		function() { console.debug("closed tab: " + tab.url); }
+	);	
 }

@@ -7,13 +7,13 @@
 	<key>ESProjectWindowState</key>
 	<dict>
 		<key>ContentSize</key>
-		<string>{1199, 777}</string>
+		<string>{1311, 778}</string>
 		<key>ProjectURL</key>
 		<string>file://localhost/Users/kenliu/code/chromeitlater/chromeitlater.esproj/</string>
 		<key>StateType</key>
 		<string>ProjectWindow</string>
 		<key>TopLeftPoint</key>
-		<string>{54, 878}</string>
+		<string>{20, 878}</string>
 	</dict>
 	<key>com.macrabbit.Espresso.FileManager.DisclosureCollapsed</key>
 	<false/>
@@ -30,10 +30,6 @@
 	<dict>
 		<key>Tabs</key>
 		<array>
-			<dict>
-				<key>StateType</key>
-				<string>PreviewTab</string>
-			</dict>
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/kenliu/code/chromeitlater/src/main/options.html</string>
@@ -61,6 +57,24 @@
 			<dict>
 				<key>DocumentURL</key>
 				<string>file://localhost/Users/kenliu/code/chromeitlater/src/main/chromeitlater.css</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/kenliu/code/chromeitlater/src/test/list-styling.css</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/kenliu/code/chromeitlater/src/test/list-styling.html</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/kenliu/code/chromeitlater/src/main/popup.css</string>
 				<key>StateType</key>
 				<string>DefaultTab</string>
 			</dict>
