@@ -1,0 +1,51 @@
+body {
+	font-family: "Arial", sans-serif;
+}
+
+#recent_urls_panel {
+	border-top: 1px solid black;
+}
+
+#recent_urls_panel #recent_urls_title {
+	margin: .5em;
+}
+
+#recent_urls_panel ul {
+	padding: 0;
+	margin: 0;
+}
+
+#recent_urls_panel li {
+	list-style-type: none;
+	padding: .25em;
+	font-size: .75em;
+	height: 2em;
+	border-top: 1px solid white;
+	border-bottom: 1px solid darkgray;	
+}
+                        
+#recent_urls {
+	margin: .5em;
+}
+
+#recent_urls a {
+	text-decoration: none;
+}
+
+#recent_urls a:visited,
+#recent_urls a:active {
+	text-decoration: none;
+}
+
+#recent_urls a:hover {
+	text-decoration: underline;
+}
+ 
+#recent_urls_pager {
+	margin: .5em; /* same as #recent_urls_title */
+	float: right;	
+}
+
+#recent_urls_pager a { 
+	text-decoration: none;	
+}
