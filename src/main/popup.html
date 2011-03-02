@@ -45,7 +45,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	function populateForm() {
 		chrome.tabs.getSelected(null,
 			function(tab) { 
-				console.debug(tab);
+				//console.debug(tab);
 				title.value = tab.title;
 				url.value = tab.url;
 			}
@@ -92,23 +92,39 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		get(localStorage.username, localStorage.password, opts, 
 			function(xhr) {
 				var response = JSON.parse(xhr.responseText);
-				console.log(response);
 				var urls = response.list;
-				if (!Object.isArray(urls)) { //RIL API returns an empty array if there are no more pages
-					
 
-					var html = '<ul>';
-					for (propertyName in urls) { 
-						var it = urls[propertyName];
-						var linktext = (it.title != "") ? it.title : (it.url.substring(0, Math.min(50, it.url.length))) //show URL if no title, truncate if necessary 
-						//TODO is this the best way to deal with long URLs?
-						html += '<li><a title="' + it.url + '" href="' + it.url + '" target="new">' + linktext + '</a></li>'; 
-					}                     
-					html += '</ul>';
+                //this is inefficient, but we now loop through
+                if (!Object.isArray(urls)) { //RIL API returns an empty array if there are no more pages
+                    
+                    //JSON.parse does not respect the order of the urls returned so we have to resort on our own
+                    //we get the time stams into an array, then do a sort so that we get the most recent time stamps at the top
+                    var sort_array = new Array();
+                    for (item in urls){
+                        var link = urls[item];
+                        sort_array.push(link.time_added);
+                    }
+                    sort_array = sort_array.sort().reverse();
+                    
+                    //we have the sorted timestamps, now we loop through the list of urls to get the urls with matching timestamps
+                    var html = '<ul>';
+                    for (var i=0; i<sort_array.length; i++) {
+                        for (item in urls){
+                            var link = urls[item]
+                            if(link.time_added == sort_array[i]){
+                                var linktext = (link.title != "") ? link.title : (link.url.substring(0, Math.min(50, link.url.length))) //show URL if no title, truncate if necessary 
+                                //TODO is this the best way to deal with long URLs?
+                                html += '<li><a title="' + link.url + '" href="' + link.url + '" target="new">' + linktext + '</a></li>';
+                                html += '</ul>';
+                            }
+                        }
+                    }
+                    //console.log(html);
 					recent_urls.innerHTML = html;  		
 				} else {
 					CURRENT_PAGE--; //not very elegant way to prevent from paging forward
 				}
+                
 			}
 		);
 	}
