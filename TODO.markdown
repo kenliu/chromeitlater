@@ -41,11 +41,13 @@ Features for 0.4 release
 - welcome screen after update?    
 - de-uglify options page
 - Improved/non-ugly user notification                                                        
+- animated post icon
          
-0.3.1 release
+0.3.2 release
 -------------
+- check for error code on Ajax callback
+- Basic shortcut keys (beta first?)
 - clean up API
-- add jQuery
 - (check on API throttling)
 - Load favicons for recently saved
 - Fade out options flash area after save  
@@ -56,11 +58,22 @@ Features for 0.4 release
 - Nicer fonts (font-face)
 - Add spinner for loading recently saved
 - Google Analytics?
-- Enter key for add form
+- Enter key for add form     
+- Add option for disabling context menu
+- Rake tasks for generating documentation  
+- verify domain 
+- finish jQuery rewrite
+- finish testing [#5] fix posts for slow connections        
+- migrate help to gh-pages site                   
+
+0.3.1 release
+-------------
+- bug fixes: sorting
+- tweak styles
+- jQuery rewrite
 
 0.3 release
 ------------- 
-- animated post icon
 - context menu
 - [#5] fix posts for slow connections        
 - Browse recent posts         
