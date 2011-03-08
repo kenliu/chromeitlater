@@ -24,11 +24,9 @@ body {
 	font-family: arial, sans-serif;
 }
 
-   
-fieldset {
+/*fieldset {
 	border-radius: .25em;
-}
-
+}*/
 
 /**************************
 * Styles for the options page
@@ -38,22 +36,35 @@ fieldset {
 #options_footer a:visited { color: black; text-decoration:underline; }
 #options_footer a:hover { color: black; text-decoration:underline; }
 #options_footer a:active { color: black; text-decoration:underline; }
-
-#container {
-}
  
 #flash {
 	border-radius: .5em;
 }
 
+.flashError {
+	padding: 1em;
+	background-color: Red;
+} 
+
+.flashMessage {          
+	padding: 1em;
+	background-color: LightGreen;
+}                       
+
+#options_header {
+	padding-left: 1em;
+}
+
 #options_container {
 	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #options_content {
+	border: 1px solid black;
 	border-top-left-radius: .5em;
 	border-top-right-radius: .5em;
-	background-color: #36abe4;
 	padding: 1em;	
 }
 
