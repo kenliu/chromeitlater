@@ -19,7 +19,9 @@
 
 var INITIALIZED_KEY = 'initialized';
 var USERNAME_KEY = "username";
-var PASSWORD_KEY = "password";
+var PASSWORD_KEY = "password";   
+
+var RIL_URL_UNREAD = "http://www.readitlaterlist.com/unread";
 
 function isInitialized() {
 	var initialized = localStorage[INITIALIZED_KEY];

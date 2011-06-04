@@ -26,12 +26,18 @@
 	<script>                                  
 	
 	var api;
-
+                           
+	/* called when the browser button is clicked */
 	function addTab() {
 		chrome.tabs.getSelected(null, 
 			function(tab) { 
-				console.debug(tab);
-				addWithBadgeIndicator(tab.url, tab.title, defaultTabCloseHandler);
+				console.debug(tab);             
+				if (tab.url == "chrome://newtab/") {
+					console.debug('opening RIL unread page')
+					chrome.tabs.update(tab.id, {url: RIL_URL_UNREAD});
+				} else {
+					addWithBadgeIndicator(tab.url, tab.title, defaultTabCloseHandler);           
+				}
 			}                                            
 		);
 	}
