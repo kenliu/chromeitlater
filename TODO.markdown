@@ -1,3 +1,5 @@
+
+
 Features for 2.0 release
 --------------------------
 - Google Reader support
