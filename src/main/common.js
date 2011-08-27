@@ -56,7 +56,7 @@ var defaultTabCloseHandler = function(tab) {
 		return;
     }
 	 
-	if (tab.pinned == true) { //pinned only available in Chrome 9+
+	if (tab.pinned == true) {
 		return;
 	}          
 

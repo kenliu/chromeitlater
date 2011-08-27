@@ -21,7 +21,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 <head>
    	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
 	<link rel="stylesheet" type="text/css" href="popup.css" />
-	<script type="text/javascript" src="lib/prototype.js"></script> 
+	<script type="text/javascript" src="lib/underscore-min.js"></script>
+	<script type="text/javascript" src="lib/prototype.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.6.1.min.js"></script>
 	<script type="text/javascript" src="readitlater-client.js"></script>
 	<script type="text/javascript" src="common.js"></script>
 	<script type="text/javascript">
@@ -52,7 +54,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		);			
 	}
 
-	function clicked() {		
+	function clicked() {
 		var urlval = url.value;
 		var titleval = title.value;
 		var tagsval = tags.value;
@@ -64,10 +66,11 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 				BG.api.sendNewURL(localStorage.username, localStorage.password, urlval, titleval, tagsval,
 					function (status, responseText) {
 						if (status == '200') {
-							popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully!</b></div>';
+							popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully.</b></div>';
 							closeTabIfConfigured(tab);
 						} 
-						else {
+						else {                                     
+							//TODO handle error code here
 							popup_container.innerHTML = '<div class="popup_message"><b>Error adding page</b><br/><small>' + responseText + '</small></div>';
 						}
 						window.setTimeout(function() { window.close(); }, 1500);
@@ -139,6 +142,19 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			CURRENT_PAGE--;         
 		}
 		loadRecentlySaved(); 
+	}                               
+	
+	function saveAll(){
+		chrome.tabs.getAllInWindow(null, function(tabs) {
+			BG.api.sendUrls(localStorage.username, localStorage.password, tabs, null, function() {
+				//close tabs on successful submission
+				_.each(tabs, function(tab) {
+				
+					defaultTabCloseHandler(tab); 
+				});
+				//TODO check for pinned tabs
+			});
+		});
 	}
 	</script>
 </head>           
@@ -152,7 +168,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			<label for="title">Title</label><br/><input type="text" name="title" value="" id="title" size="50"><br/>
 			<label for="url">URL</label><br/><input type="text" name="url" value="" id="url" size="50"><br/>
 			<label for="tags">Tags <i>(comma-separated)</i></label><br/><input type="text" name="tags" value="" id="tags" size="50"><br/>
-			<button onClick="clicked()">Add</button>
+			<div>
+				<div style="display:inline-block; width: 50%;"><button onclick="clicked()">Add</button></div><div style="display:inline-block; vertical-align: middle; text-align: right; width: 50%;"><a href="javascript:saveAll()"><img src="img/layers_2_icon.png" alt="save all tabs in current window" style="float: right;"></img></a></div>
+			</div>
 		</div>
 		<div id="recent_urls_panel">
 			<div id="recent_urls_pager"><a id="prev_page" href="javascript:prevPage()"><img src="img/sq_br_prev.png"></a> <a id="next_page" href="javascript:nextPage()"><img src="/img/sq_br_next.png"></a></div>
@@ -163,7 +181,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			<a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a>
 			<a href="http://www.readitlaterlist.com/read" target="ril_read">read</a>
 			<a href="http://www.readitlaterlist.com/d" target="ril_blank">digest</a>
-			<a href="tabpage.html" target="ril_blank">tabpage</a>
+			<!-- <a href="tabpage.html" target="ril_blank">tabpage</a>   -->
 			<a href="help/index.html" target="cil_help">help</a>
 		</div>
 	</div>
