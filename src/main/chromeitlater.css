@@ -21,7 +21,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 body {
-	font-family: arial, sans-serif;
+	font-family: helvetica, arial, sans-serif;
 }
 
 /*fieldset {
@@ -63,8 +63,6 @@ body {
 
 #options_content {
 	border: 1px solid black;
-	border-top-left-radius: .5em;
-	border-top-right-radius: .5em;
 	padding: 1em;	
 }
 
@@ -72,7 +70,5 @@ body {
 	padding: 1em;	
 	font-size: .75em;
 	background-color: gray;
-	border-bottom-left-radius: .5em;
-	border-bottom-right-radius: .5em;
 }           
                           
