@@ -28,6 +28,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	border-width: 1px;
 	border-color: #333333; 
 	border-radius: .25em;
+	word-wrap: break-word; /* TODO this doesn't seem to have any effect? */
 }
 
 #popup_container {
@@ -72,7 +73,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 #recent_urls_panel li {
 	list-style-type: none;
 	padding: .25em;
-	font-size: .75em;
+	font-size: .75em;      
 	/*height: 2em;*/
 }
 
@@ -98,6 +99,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 
 #recent_urls_pager a { 
 	text-decoration: none;	
+	word-wrap: break-word;
 }
 
 /*
@@ -135,5 +137,5 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 #popup_footer a:active {
 	color: lightgray;
 	padding: .25em;
-	text-decoration: none;
+	text-decoration: none;   
 }
