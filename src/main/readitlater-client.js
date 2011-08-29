@@ -71,18 +71,12 @@ function get(username, password, opts, callback) {
 	xhr.send();
 }
 
-
-var ReadItLaterAPI = Class.create({
-	initialize: function() {
-	
-	}, 
-	
-	/**
-	* @param url unencoded url text
-	* @param title unencoded page title
-	* @param tags unencoded tags or empty string
-	*/
-	add: function(username, password, url, title, tags, callback) { 
+/**
+* @param url unencoded url text
+* @param title unencoded page title
+* @param tags unencoded tags or empty string
+*/
+function add(username, password, url, title, tags, callback) { 
 		var xhr = new XMLHttpRequest();
 		var reqUrl = buildReqUrl(ADD_URL, username, password);
 		//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
@@ -100,9 +94,9 @@ var ReadItLaterAPI = Class.create({
 			}
 		}
 		xhr.send();
-	},
+}
 	             
-	sendNewURL: function(username, password, url, title, tags, callback) {
+function sendNewURL(username, password, url, title, tags, callback) {
 		var xhr = new XMLHttpRequest();
 		var reqUrl = buildReqUrl(SEND_URL, username, password); 
 		//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
@@ -119,7 +113,7 @@ var ReadItLaterAPI = Class.create({
 		};
 	 	reqUrl += '&new=' + JSON.stringify(reqObj);
 
-		if (!tags.blank()) {
+		if (!_(tags).isBlank()) {
 			var tagsObj = {
 				"0":{
 					"url": encodeURIComponent(url),
@@ -139,8 +133,52 @@ var ReadItLaterAPI = Class.create({
 			}
 		}
 		xhr.send();
-	}
-});    
+}
+	
+	
+function sendUrls(username, password, tabs, tags, callback) {
+		var xhr = new XMLHttpRequest();
+		var reqUrl = buildReqUrl(SEND_URL, username, password); 
+		//TODO check for null/empty title - q: is there a diff b/n sending a url as a title and not sending a title?
+		//TODO apparently RIL doesn't support anything besides http and https, check for this
+		chrome.extension.getBackgroundPage().console.debug(tabs);
+		
+		//build JSON request
+		var reqObj = {};
+		_.each(tabs, function(tab, index) {           
+//			chrome.extension.getBackgroundPage().console.debug(index); 
+			var idx = index + '';
+			reqObj[idx] = {"url": tab.url,"title": tab.title};
+		});
+		                        
+
+	//	console.log('sendUrls');
+		chrome.extension.getBackgroundPage().console.debug(reqObj);
+
+		reqUrl += '&new=' + JSON.stringify(reqObj);
+				
+		// if (!tags.blank()) {
+		// 	var tagsObj = {
+		// 		"0":{
+		// 			"url": encodeURIComponent(url),
+		// 			"tags": encodeURIComponent(tags)
+		// 		}
+		// 	};                  
+		// 	reqUrl += '&update_tags=' + JSON.stringify(tagsObj);
+		// }
+		
+		chrome.extension.getBackgroundPage().console.debug("submitting URL: " + reqUrl); 
+		xhr.open("GET", reqUrl, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				console.log(xhr.status);
+				console.log(xhr.responseText);
+				callback(xhr.status, xhr.responseText);
+			}
+		}             
+		xhr.send();	
+}
+
 
 
 function buildReqUrl(baseurl, username, password) {

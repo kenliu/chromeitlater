@@ -22,8 +22,8 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
    	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
 	<link rel="stylesheet" type="text/css" href="popup.css" />
 	<script type="text/javascript" src="lib/underscore-min.js"></script>
-	<script type="text/javascript" src="lib/prototype.js"></script>
-    <script type="text/javascript" src="lib/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="lib/underscore.string.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="readitlater-client.js"></script>
 	<script type="text/javascript" src="common.js"></script>
 	<script type="text/javascript">
@@ -33,6 +33,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	var BG = chrome.extension.getBackgroundPage();
 	
 	function loaded() {
+		$('#prev_page').click(prevPage);
+		$('#next_page').click(nextPage);
+
 		chrome.browserAction.setTitle({"title": "ChromeItLater"}); //reset tooltip in case it is showing an error
 		if (!isInitialized() || !isLoginConfigured()) {
 			chrome.tabs.create({'url': 'options.html'}, null);
@@ -41,7 +44,8 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		}		
 
    		populateForm();
-		loadRecentlySaved(); //TODO make this async
+		loadRecentlySaved(); //TODO make this async       
+		
 	}
 	         
 	function populateForm() {
@@ -63,7 +67,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		//TODO this is starting to look like lisp!
 		chrome.tabs.getSelected(null, 
 			function(tab) {
-				BG.api.sendNewURL(localStorage.username, localStorage.password, urlval, titleval, tagsval,
+				sendNewURL(localStorage.username, localStorage.password, urlval, titleval, tagsval,
 					function (status, responseText) {
 						if (status == '200') {
 							popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully.</b></div>';
@@ -87,9 +91,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 		        
 		// hide prev navigation if on first page
 		if (CURRENT_PAGE == 1) {
-			$('prev_page').style.visibility = 'hidden';
+			$('#prev_page').css('visibility', 'hidden');
 		} else {
-			$('prev_page').style.visibility = 'visible';
+			$('#prev_page').css('visibility', 'visible');
 		}
 		
 		get(localStorage.username, localStorage.password, opts, 
@@ -98,7 +102,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 				var urls = response.list;
 				
                 //this is inefficient, but we now loop through
-                if (!Object.isArray(urls)) { //RIL API returns an empty array if there are no more pages
+                if (!$.isArray(urls)) { //RIL API returns an empty array if there are no more pages
                     
                     //JSON.parse does not respect the order of the urls returned so we have to re-sort on our own
 					//we get the time stamps into an array, then do a sort so that we get the most recent time stamps at the top
@@ -110,7 +114,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
                     sort_array = sort_array.sort().reverse();
                     
                     //we have the sorted timestamps, now we loop through the list of urls to get the urls with matching timestamps
-                    var html = '<ul>';
+                    var html = '<ul class="recent_urls">';
                     for (var i=0; i<sort_array.length; i++) {
                         for (item in urls){
                             var link = urls[item]
@@ -118,18 +122,21 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
                                 var linktext = (link.title != "") ? link.title : (link.url.substring(0, Math.min(50, link.url.length))) //show URL if no title, truncate if necessary 
                                 //TODO is this the best way to deal with long URLs?
                                 html += '<li><a title="' + link.url + '" href="' + link.url + '" target="new">' + linktext + '</a></li>';
-                                html += '</ul>';
-                            }
+                            } 
                         }
                     }
-                    //console.log(html);
-					recent_urls.innerHTML = html;  		
+                    html += '</ul>';
+                    console.log(html);
+					$('#recent_urls').html(html);
+					//$('#recent_urls li').append();  		
 				} else {
 					CURRENT_PAGE--; //not very elegant way to prevent from paging forward
 				}
                 
 			}
-		);
+		); 
+		
+		//TODO hide next button on last page
 	}
     
 	function nextPage(){
@@ -146,10 +153,9 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	
 	function saveAll(){
 		chrome.tabs.getAllInWindow(null, function(tabs) {
-			BG.api.sendUrls(localStorage.username, localStorage.password, tabs, null, function() {
+			sendUrls(localStorage.username, localStorage.password, tabs, null, function() {
 				//close tabs on successful submission
 				_.each(tabs, function(tab) {
-				
 					defaultTabCloseHandler(tab); 
 				});
 				//TODO check for pinned tabs
@@ -173,7 +179,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 			</div>
 		</div>
 		<div id="recent_urls_panel">
-			<div id="recent_urls_pager"><a id="prev_page" href="javascript:prevPage()"><img src="img/sq_br_prev.png"></a> <a id="next_page" href="javascript:nextPage()"><img src="/img/sq_br_next.png"></a></div>
+			<div id="recent_urls_pager"><a id="prev_page" href="#"><img src="img/sq_br_prev.png"></a> <a id="next_page" href="#"><img src="/img/sq_br_next.png"></a></div>
 			<div id="recent_urls_title"><b>Recently Saved</b></div>
 			<div id="recent_urls"></div>
 		</div>

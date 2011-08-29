@@ -19,14 +19,12 @@
 -->
 <html>
 <head>
-	<link href='http://fonts.googleapis.com/css?family=Arimo&subset=latin' rel='stylesheet' type='text/css'>
-	<script src="lib/prototype.js"></script>
+	<script type="text/javascript" src="lib/underscore-min.js"></script> 	
+	<script type="text/javascript" src="lib/jquery-1.6.2.min.js"></script>
 	<script src="common.js"></script>
 	<script src="readitlater-client.js"></script> 
 	<script>                                  
-	
-	var api;
-                           
+	                           
 	/* called when the browser button is clicked */
 	function addTab() {
 		chrome.tabs.getSelected(null, 
@@ -47,7 +45,7 @@
 		chrome.browserAction.setBadgeText({text: "..."});           
 		//TODO show different icon on failure
 		chrome.browserAction.setTitle({"title": "ChromeItLater"});
-		api.add(localStorage.username, localStorage.password, url, title, null, 
+		add(localStorage.username, localStorage.password, url, title, null, 
 			function(status, responseText) {
 				if (status == 200) {
 					chrome.browserAction.setBadgeBackgroundColor({color: [0, 205, 0, 255]}); //green 3 
@@ -85,7 +83,6 @@
 
 	function init(){
 		chrome.browserAction.onClicked.addListener(addTab); //set callback for button click
-		api = new ReadItLaterAPI();
 		initPopup();
 		initContextMenu();
 	}                 
