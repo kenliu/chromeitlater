@@ -48,4 +48,8 @@ body {
 
 #recent_urls_pager a { 
 	text-decoration: none;	
+}           
+
+.controls {
+	float: right;
 }
