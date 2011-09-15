@@ -1,6 +1,6 @@
-ChromeItLater is an unofficial client for Read it Later (http://www.readitlaterlist.com).
+posthoc is an unofficial client for Read it Later (http://www.readitlaterlist.com).
 
-ChromeItLater is designed for speed. Save your pages and move on.
+posthoc is designed for speed. Save your pages and move on.
 
 Read it Later (RIL) is a web site that saves pages for you to read later from the same computer or another computer.
 
@@ -15,11 +15,12 @@ This extension features:
 Chrome automatically warns you and disables the extension because the new version requires additional access for right-click context menus, favicons (site icons), and desktop notifications. None of these gives the extension additional access to your personal data and are no cause for concern.
 *************************************************************************
 
-You'll need to set up a Read it Later account before using this extension. Once you have an account, set up the Read it Later username and password in the extension options screen. (Right-click the blue ChromeItLater icon to get to the options screen.)
+You'll need to set up a Read it Later account before using this extension. Once you have an account, set up the Read it Later username and password in the extension options screen. (Right-click the blue posthoc icon to get to the options screen.)
 
 Please send feedback or support requests to chromeitlater@gmail.com.
 
-Version History:                                          
+Version History:         
+- 0.4 (09-14-2011) Renamed to posthoc                                 
 - 0.3.1 (03-08-2010) Fixed sort order in recent list, prevent closing of pinned tabs
 - 0.3 (12-04-2010) View list of recently saved pages, added right-click to save, improved notification for instant save, bug fixes
 - 0.2.3 (05-15-2010) Added support for tags when adding page
