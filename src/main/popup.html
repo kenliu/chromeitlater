@@ -2,20 +2,20 @@
 <!-- 
 Copyright 2010 Kenneth Liu.
 
-This file is part of ChromeItLater.
+This file is part of posthoc.
 
-ChromeItLater is free software: you can redistribute it and/or modify
+posthoc is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 any later version.
 
-ChromeItLater is distributed in the hope that it will be useful,
+posthoc is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
+along with posthoc.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html>
 <head>
@@ -31,7 +31,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 	var BG = chrome.extension.getBackgroundPage();
 	
 	function loaded() {
-		chrome.browserAction.setTitle({"title": "ChromeItLater"}); //reset tooltip in case it is showing an error
+		chrome.browserAction.setTitle({"title": "posthoc"}); //reset tooltip in case it is showing an error
 		if (!isInitialized() || !isLoginConfigured()) {
 			chrome.tabs.create({'url': 'options.html'}, null);
 			window.close();
@@ -146,7 +146,7 @@ along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
 <body id="popup" onload="loaded()">
 	<div id="popup_container">
 		<div id="header">
-			<b>ChromeItLater</b>	
+			<b>posthoc</b>	
 		</div>
 		<div id="add_panel">
 			<label for="title">Title</label><br/><input type="text" name="title" value="" id="title" size="50"><br/>

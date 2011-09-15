@@ -1,11 +1,11 @@
 {
   "name": "__MSG_pluginName__",
-  "version": "0.3.1",
+  "version": "0.4",
   "description": "__MSG_pluginDescription__",
   "background_page": "background.html",
   "browser_action": {
     "default_icon": "folder-library-icon_32.png",
-	"default_title": "ChromeItLater"
+	"default_title": "posthoc"
   },
   "default_locale": "en",
   "icons": {
