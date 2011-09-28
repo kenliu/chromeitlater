@@ -7,6 +7,6 @@ https://chrome.google.com/extensions/detail/ikajdinojambnjmdglchkjiklcmklalj
                           
 or
 
-http://http://kenliu.github.com/chromeitlater/
+http://kenliu.github.com/chromeitlater/
 
 Note: This is an unofficial Read it Later client.
