@@ -5,7 +5,7 @@
   "background_page": "background.html",
   "browser_action": {
     "default_icon": "folder-library-icon_32.png",
-	"default_title": "ChromeItLater"
+	"default_title": "QuickPocket"
   },
   "default_locale": "en",
   "icons": {
@@ -18,7 +18,7 @@
   "options_page": "options.html",
   "permissions": [
 	"tabs",
-    "https://readitlaterlist.com/",
+    "https://getpocket.com/",
     "chrome://favicon/",
 	"contextMenus",
 	"notifications"

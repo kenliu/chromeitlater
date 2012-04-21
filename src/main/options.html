@@ -2,23 +2,23 @@
 <!-- 
 	Copyright 2012 Kenneth Liu.
  
-	This file is part of ChromeItLater.
+	This file is part of QuickPocket.
 
-    ChromeItLater is free software: you can redistribute it and/or modify
+    QuickPocket is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
     any later version.
 
-    ChromeItLater is distributed in the hope that it will be useful,
+    QuickPocket is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with ChromeItLater.  If not, see <http://www.gnu.org/licenses/>.
+    along with QuickPocket.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html>
-<head><title>ChromeItLater Options</title>
+<head><title>QuickPocket Options</title>
 	<link rel="stylesheet" type="text/css" href="chromeitlater.css" />
 	<script type="text/javascript" src="lib/jquery-1.6.2.min.js"></script>
 	<script src="common.js"></script>
@@ -31,7 +31,7 @@ function saveOptions() {
 	//TODO trim before saving?	
 
 	if (!username.value || !password.value) {
-		flashError('Please enter your <a href="http://www.readitlaterlist.com">Read It Later</a> username and password.');
+		flashError('Please enter your <a href="http://www.getpocket.com">Pocket</a> username and password.');
 		return;
 	}
 
@@ -71,7 +71,7 @@ function checkFreshInstall() {
 
 function checkLoginInfo() {
 	if (!isLoginConfigured()) {
-		flash('Enter your <a href="http://www.readitlaterlist.com">Read It Later</a> account login information below to start using this extension. <br/>(<a href="http://readitlaterlist.com/signup/">I need an account</a>)');
+		flash('Enter your <a href="http://getpocket.com">Read It Later</a> account login information below to start using this extension. <br/>(<a href="http://getpocket.com/signup.php">I need an account</a>)');
 		return false;
 	} else return true;
 }
@@ -97,7 +97,7 @@ function flashError(message) {
 <body onload="loaded()">
 	<div id="options_container"> 
 		<div id="options_header">
-			<h1 id="chromeitlater_options"><img src="folder-library-icon_48.png"/>&nbsp;ChromeItLater Options</h1>			
+			<h1 id="chromeitlater_options"><img src="folder-library-icon_48.png"/>&nbsp;QuickPocket Options</h1>			
 		</div>
 		<div id="options_content"> 
 			<div id="flash" style="display:none"></div><br/>
@@ -130,7 +130,7 @@ function flashError(message) {
 		<div id="options_footer">
 			<p><b>ChromeItLater 0.3.1</b></p>
 			<p>
-				&copy; 2010 <a href="http://github.com/kenliu">Kenneth Liu</a>
+				&copy; 2012 <a href="http://github.com/kenliu">Kenneth Liu</a>
 				<a href="http://www.kenliu.net">http://www.kenliu.net</a>
 				<a href="http://www.twitter.com/kenliu">@kenliu</a>
 			</p>

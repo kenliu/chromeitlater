@@ -1,30 +1,20 @@
-ChromeItLater is an unofficial client for Read it Later (http://www.readitlaterlist.com).
+QuickPocket is an unofficial Chrome Extension for for Pocket (formerly Read it Later).
 
-ChromeItLater is designed for speed. Save your pages and move on.
+QuickPocket is designed for speed. Save your pages and move on.
 
-Read it Later (RIL) is a web site that saves pages for you to read later from the same computer or another computer.
+Pocket is a web site that saves pages for you to read later from the same computer or another computer.
 
 This extension features:
-- Save page to RIL using popup
-- Save page to RIL instantly (one click to save a page)
+- Save page to Pocket using popup
+- Save page to Pocket instantly (one click to save a page)
 - Close current tab immediately after saving page
-- Save instantly by right-clicking on a page or link (NEW)
-- View list of recently saved pages (NEW)
+- Save instantly by right-clicking on a page or link
+- View list of recently saved pages
 
-*** Security notice for people who are upgrading from 0.2.3 ***
-Chrome automatically warns you and disables the extension because the new version requires additional access for right-click context menus, favicons (site icons), and desktop notifications. None of these gives the extension additional access to your personal data and are no cause for concern.
-*************************************************************************
+You'll need to set up a Pocket account before using this extension. Once you have an account, set up the Pocket username and password in the extension options screen. (Right-click the blue QuickPocket icon to get to the options screen.)
 
-You'll need to set up a Read it Later account before using this extension. Once you have an account, set up the Read it Later username and password in the extension options screen. (Right-click the blue ChromeItLater icon to get to the options screen.)
+Please send feedback or support requests to QuickPocket@gmail.com.
 
-Please send feedback or support requests to chromeitlater@gmail.com.
-
-Version History:                                          
-- 0.3.1 (03-08-2010) Fixed sort order in recent list, prevent closing of pinned tabs
-- 0.3 (12-04-2010) View list of recently saved pages, added right-click to save, improved notification for instant save, bug fixes
-- 0.2.3 (05-15-2010) Added support for tags when adding page
-- 0.2.2 (04-14-2010) Cosmetic changes: changed "fugly" icon, added links to RIL site 
-- 0.2.1 (04-03-2010) Bug fixes: some urls were truncated, missing icon on Windows options page
-- 0.2 (03-21-2010) UI enhancements, fix add api response not always handled correctly, fixed instant add
-- 0.1.1 (03-20-2010) Bug fix: add api response not handled correctly
-- 0.1 (03-19-2010) First release, supports adding and immediate adding with automatic tab closing
+Version History:         
+- 0.5 () Updated to support Pocket, renamed to QuickPocket
+- 0.4 (09-14-2011) Renamed to posthoc
