@@ -62,7 +62,7 @@ along with QuickPocket.  If not, see <http://www.gnu.org/licenses/>.
 		var urlval = url.value;
 		var titleval = title.value;
 		var tagsval = tags.value;
-		popup_container.innerHTML = '<div class="popup_message">Adding URL...</div>';
+		popup_container.innerHTML = '<div class="popup_message">Saving URL...</div>';
 
 		//TODO this is starting to look like lisp!
 		chrome.tabs.getSelected(null, 
@@ -70,12 +70,12 @@ along with QuickPocket.  If not, see <http://www.gnu.org/licenses/>.
 				sendNewURL(localStorage.username, localStorage.password, urlval, titleval, tagsval,
 					function (status, responseText) {
 						if (status == '200') {
-							popup_container.innerHTML = '<div class="popup_message"><b>Page added successfully.</b></div>';
+							popup_container.innerHTML = '<div class="popup_message"><b>Page saved successfully.</b></div>';
 							closeTabIfConfigured(tab);
 						} 
 						else {                                     
 							//TODO handle error code here
-							popup_container.innerHTML = '<div class="popup_message"><b>Error adding page</b><br/><small>' + responseText + '</small></div>';
+							popup_container.innerHTML = '<div class="popup_message"><b>Error saving page</b><br/><small>' + responseText + '</small></div>';
 						}
 						window.setTimeout(function() { window.close(); }, 1500);
 					}
