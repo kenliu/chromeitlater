@@ -71,13 +71,13 @@ function checkFreshInstall() {
 
 function checkLoginInfo() {
 	if (!isLoginConfigured()) {
-		flash('Enter your <a href="http://getpocket.com">Read It Later</a> account login information below to start using this extension. <br/>(<a href="http://getpocket.com/signup.php">I need an account</a>)');
+		flash('Enter your <a href="http://getpocket.com">Pocket</a> account login information below to start using this extension. <br/>(<a href="http://getpocket.com/signup/">I need an account</a>)');
 		return false;
 	} else return true;
 }
 
 function showWelcomeMessage() {
-	flash('It looks like this extension was just installed.<br/> If you haven\'t already, you\'ll need to <a href="http://readitlaterlist.com/signup/">sign up</a> for a <a href="http://www.readitlaterlist.com">Read It Later</a> account before you can use this extension. Once you have an account, enter your login information below.');
+	flash('It looks like this extension was just installed.<br/> If you haven\'t already, you\'ll need to <a href="http://getpocket.com/signup/">sign up</a> for a <a href="http://www.getpocket.com">Pocket</a> account before you can use this extension. Once you have an account, enter your login information below.');
 }
 
 function flash(message) {
@@ -102,7 +102,7 @@ function flashError(message) {
 		<div id="options_content"> 
 			<div id="flash" style="display:none"></div><br/>
 			<fieldset>
-				<legend><a href="http://www.readitlaterlist.com">Read It Later</a> Login Information</legend>
+				<legend><a href="http://www.getpocket.com">Pocket</a> Login Information</legend>
 				<div>
 					<div>
 						<label for="username">Username</label><br />
@@ -128,7 +128,7 @@ function flashError(message) {
 			</p> 
 		</div>
 		<div id="options_footer">
-			<p><b>ChromeItLater 0.3.1</b></p>
+			<p><b>QuickPocket 0.5</b></p>
 			<p>
 				&copy; 2012 <a href="http://github.com/kenliu">Kenneth Liu</a>
 				<a href="http://www.kenliu.net">http://www.kenliu.net</a>
