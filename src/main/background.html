@@ -20,7 +20,7 @@
 <html>
 <head>
 	<script type="text/javascript" src="lib/underscore-min.js"></script> 	
-	<script type="text/javascript" src="lib/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
 	<script src="common.js"></script>
 	<script src="readitlater-client.js"></script> 
 	<script>                                  
@@ -97,7 +97,7 @@
 	
 	function initContextMenu() {
 		chrome.contextMenus.create({
-			"title": "Save to Read It Later",
+			"title": "Save to Pocket",
 			"contexts": ["page", "link"],
 			"onclick": addFromContextMenu
 		});

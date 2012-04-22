@@ -23,7 +23,7 @@ along with QuickPocket.  If not, see <http://www.gnu.org/licenses/>.
 	<link rel="stylesheet" type="text/css" href="popup.css" />
 	<script type="text/javascript" src="lib/underscore-min.js"></script>
 	<script type="text/javascript" src="lib/underscore.string.js"></script>
-    <script type="text/javascript" src="lib/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="readitlater-client.js"></script>
 	<script type="text/javascript" src="common.js"></script>
 	<script type="text/javascript">
@@ -160,12 +160,20 @@ along with QuickPocket.  If not, see <http://www.gnu.org/licenses/>.
 			<div id="recent_urls"></div>
 		</div>
 		<div id="popup_footer">
-			<a href="http://www.readitlaterlist.com/unread" target="ril_unread">unread</a>
-			<a href="http://www.readitlaterlist.com/read" target="ril_read">read</a>
-			<a href="http://www.readitlaterlist.com/d" target="ril_blank">digest</a>
+			<a href="http://getpocket.com/a/queue/" target="pocket_home">pocket</a>
+			<a href="http://getpocket.com/a/favorites/" target="pocket_favorites">favorites</a>
+			<a href="http://getpocket.com/a/archive/" target="pocket_archive">archive</a>
 			<!-- <a href="tabpage.html" target="ril_blank">tabpage</a>   -->
-			<a href="help/index.html" target="cil_help">help</a>
+			<a href="help/index.html" target="quickpocket_help">help</a>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+	 $(document).ready(function(){
+	 	$('add').click(save);
+	 	loaded();
+	// 	$('save-all').click(saveAll);
+  	});
+	</script>
 </body>
 </html>
