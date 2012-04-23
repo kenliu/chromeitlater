@@ -29,10 +29,10 @@
 	function addTab() {
 		chrome.tabs.getSelected(null, 
 			function(tab) { 
-				console.debug(tab);             
+				console.debug(tab);
 				if (tab.url == "chrome://newtab/") {
 					console.debug('opening RIL unread page')
-					chrome.tabs.update(tab.id, {url: RIL_URL_UNREAD});
+					chrome.tabs.update(tab.id, {url: POCKET_QUEUE});
 				} else {
 					addWithBadgeIndicator(tab.url, tab.title, defaultTabCloseHandler);           
 				}
