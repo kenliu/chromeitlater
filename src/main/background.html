@@ -50,7 +50,7 @@
 				if (status == 200) {
 					chrome.browserAction.setBadgeBackgroundColor({color: [0, 205, 0, 255]}); //green 3 
 					chrome.browserAction.setBadgeText({text: "OK"}); 
-					setTimeout("chrome.browserAction.setBadgeText({text: ''})", 1500) //clear badge after timeout
+					setTimeout(resetBadgeText, 1500) //clear badge after timeout
 					chrome.tabs.getSelected(null, 
 					 	function(tab) {
 							tabCloseHandler(tab);
@@ -103,6 +103,9 @@
 		});
 	}                                                                               
 
+	function resetBadgeText() {
+		chrome.browserAction.setBadgeText({text: ''})
+	}
 
 	</script>               
 </head>
