@@ -4,11 +4,12 @@
   "description": "__MSG_pluginDescription__",
   "background": {
     "page": "background.html",
-    "persistent": false
+    "persistent": true
   },
   "browser_action": {
     "default_icon": "folder-library-icon_32.png",
-	"default_title": "QuickPocket"
+    "default_name": "QuickPocket",
+    "default_page": "popup.html"
   },
   "default_locale": "en",
   "icons": {
