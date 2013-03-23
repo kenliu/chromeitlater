@@ -2,7 +2,10 @@
   "name": "__MSG_pluginName__",
   "version": "0.5",
   "description": "__MSG_pluginDescription__",
-  "background_page": "background.html",
+  "background": {
+    "page": "background.html",
+    "persistent": false
+  },
   "browser_action": {
     "default_icon": "folder-library-icon_32.png",
 	"default_title": "QuickPocket"
@@ -14,7 +17,8 @@
 			"128": "folder-library-icon_128.png" 
 			},
   "incognito": "spanning",
-  "minimum_chrome_version": "5.0.316.0",
+  "manifest_version": 2,
+  "minimum_chrome_version": "17",
   "options_page": "options.html",
   "permissions": [
 	"tabs",
