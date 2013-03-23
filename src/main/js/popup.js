@@ -16,7 +16,6 @@
     You should have received a copy of the GNU General Public License
     along with QuickPocket.  If not, see <http://www.gnu.org/licenses/>.
 */ 
-
    
     //TODO store the current page in a global var
 	var CURRENT_PAGE = 1;
@@ -25,6 +24,7 @@
 	function loaded() {
 		$('#prev_page').click(prevPage);
 		$('#next_page').click(nextPage);
+		$('#save-btn').click(save);
 
 		chrome.browserAction.setTitle({"title": "QuickPocket"}); //reset tooltip in case it is showing an error
 		if (!isInitialized() || !isLoginConfigured()) {
@@ -48,7 +48,7 @@
 		);			
 	}
 
-	function clicked() {
+	function save() {
 		var urlval = url.value;
 		var titleval = title.value;
 		var tagsval = tags.value;
@@ -132,4 +132,6 @@
 		// $(document).ready(function(){
 	// 	$('save-all').click(saveAll);
  // 	})
+
+$(loaded);
 
