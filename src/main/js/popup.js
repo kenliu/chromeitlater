@@ -25,6 +25,7 @@
 		$('#prev_page').click(prevPage);
 		$('#next_page').click(nextPage);
 		$('#save-btn').click(save);
+	// 	$('save-all').click(saveAll);
 
 		chrome.browserAction.setTitle({"title": "posthoc"}); //reset tooltip in case it is showing an error
 		if (!isInitialized() || !isLoginConfigured()) {
@@ -34,8 +35,8 @@
 		}
 
    		populateForm();
-		loadRecentlySaved(); //TODO make this async
-
+		loadRecentlySaved(); //TODO make this async       
+		
 	}
 
 	function populateForm() {
@@ -128,10 +129,6 @@
 			});
 		});
 	}
-
-		// $(document).ready(function(){
-	// 	$('save-all').click(saveAll);
- // 	})
 
 $(loaded);
 
