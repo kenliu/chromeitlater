@@ -13,8 +13,8 @@ This extension features:
 
 You'll need to set up a Pocket account before using this extension. Once you have an account, set up the Pocket username and password in the extension options screen. (Right-click the blue posthoc icon to get to the options screen.)
 
-Please send feedback or support requests to posthoc@gmail.com.
+Please send feedback or support requests to chromeitlater@gmail.com.
 
-Version History:
-- 0.5 () Updated to support Pocket, renamed to posthoc
+Version History:         
+- 0.5 () Updated to support Pocket and Google Extensions manifest v2
 - 0.4 (09-14-2011) Renamed to posthoc
