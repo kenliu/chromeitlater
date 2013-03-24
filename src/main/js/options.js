@@ -1,26 +1,26 @@
-/* 
+/*
 	Copyright 2012 Kenneth Liu.
- 
-	This file is part of QuickPocket.
 
-    QuickPocket is free software: you can redistribute it and/or modify
+	This file is part of posthoc.
+
+    posthoc is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
     any later version.
 
-    QuickPocket is distributed in the hope that it will be useful,
+    posthoc is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with QuickPocket.  If not, see <http://www.gnu.org/licenses/>.
+    along with posthoc.  If not, see <http://www.gnu.org/licenses/>.
 */
 var CLOSE_TAB_KEY = "close_tab";
 var ADD_INSTANTLY = "add_instantly";
 
 function saveOptions() {
-    //TODO trim before saving?  
+    //TODO trim before saving?
 
     if (!username.value || !password.value) {
         flashError('Please enter your <a href="http://www.getpocket.com">Pocket</a> username and password.');
@@ -33,7 +33,7 @@ function saveOptions() {
     localStorage[ADD_INSTANTLY] = add_instantly.checked;
 
     //console.debug('saved: ' + username.value + '/' + password.value);
-    
+
     chrome.extension.getBackgroundPage().initPopup();
     flash('Options saved.');
 }
@@ -58,7 +58,7 @@ function checkFreshInstall() {
         showWelcomeMessage();
         localStorage[INITIALIZED_KEY] = 'true';
         return false;
-    } else return true; 
+    } else return true;
 }
 
 function checkLoginInfo() {
@@ -78,7 +78,7 @@ function flash(message) {
     $('#flash').html(message).addClass('flashMessage').fadeIn(500);
 }
 
-function flashError(message) {    
+function flashError(message) {
     //TODO corner case - if the green message is already displayed, addClass() doesn't work as expected
     $('#flash').html(message).addClass('flashError').fadeIn(500);
 }

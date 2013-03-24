@@ -8,25 +8,25 @@
   },
   "browser_action": {
     "default_icon": "folder-library-icon_32.png",
-    "default_name": "QuickPocket",
+    "default_title": "__MSG_pluginName__",
     "default_page": "popup.html"
   },
   "default_locale": "en",
   "icons": {
  			"16": "folder-library-icon_16.png",
 			"48": "folder-library-icon_48.png",
-			"128": "folder-library-icon_128.png" 
+			"128": "folder-library-icon_128.png"
 			},
   "incognito": "spanning",
   "manifest_version": 2,
   "minimum_chrome_version": "17",
   "options_page": "options.html",
   "permissions": [
-	"tabs",
+  	"tabs",
     "https://readitlaterlist.com/",
     "https://getpocket.com/",
     "chrome://favicon/",
-	"contextMenus",
-	"notifications"
+  	"contextMenus",
+  	"notifications"
   ]
 }

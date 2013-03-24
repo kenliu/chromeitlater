@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 	Copyright 2012 Kenneth Liu.
- 
-	This file is part of QuickPocket.
 
-    QuickPocket is free software: you can redistribute it and/or modify
+	This file is part of posthoc.
+
+    posthoc is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
     any later version.
 
-    QuickPocket is distributed in the hope that it will be useful,
+    posthoc is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with QuickPocket.  If not, see <http://www.gnu.org/licenses/>.
+    along with posthoc.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html>
 <head>
-	<title>QuickPocket Options</title>
+	<title>posthoc Options</title>
 	<link rel="stylesheet" type="text/css" href="css/chromeitlater.css" />
 	<script src="lib/jquery-1.7.2.min.js"></script>
 	<script src="js/common.js"></script>
@@ -27,11 +27,11 @@
 </head>
 
 <body onload="loaded()">
-	<div id="options_container"> 
+	<div id="options_container">
 		<div id="options_header">
-			<h1 id="chromeitlater_options"><img src="folder-library-icon_48.png"/>&nbsp;QuickPocket Options</h1>			
+			<h1 id="chromeitlater_options"><img src="folder-library-icon_48.png"/>&nbsp;posthoc Options</h1>
 		</div>
-		<div id="options_content"> 
+		<div id="options_content">
 			<div id="flash" style="display:none"></div><br/>
 			<fieldset>
 				<legend><a href="http://www.getpocket.com">Pocket</a> Login Information</legend>
@@ -46,7 +46,7 @@
 					</div>
 				</div>
 			</fieldset>
-			<p>                                                           
+			<p>
 				<input type="checkbox" name="add_instantly" value="" id="add_instantly" required>
 				<label for="add_instantly">Add instantly (add without popup)</label><br/>
 
@@ -57,10 +57,10 @@
 				<!-- TODO disable save button if options unchanged? -->
 				<br/>
 				<button onclick="saveOptions()">Save Options</button>
-			</p> 
+			</p>
 		</div>
 		<div id="options_footer">
-			<p><b>QuickPocket 0.5</b></p>
+			<p><b>posthoc 0.5</b></p>
 			<p>
 				&copy; 2012 <a href="http://github.com/kenliu">Kenneth Liu</a>
 				<a href="http://www.kenliu.net">http://www.kenliu.net</a>

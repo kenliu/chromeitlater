@@ -1,10 +1,10 @@
 {
 	"pluginName": {
-		"message": "QuickPocket",
+		"message": "posthoc",
 		"description": "plugin name"
-	},	
+	},
 	"pluginDescription": {
 		"message": "Save web pages to read later with one click! Saves pages to the Pocket online service.",
-		"description": "plugin description" 
+		"description": "plugin description"
 	}
 }

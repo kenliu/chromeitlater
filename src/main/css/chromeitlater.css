@@ -1,20 +1,20 @@
-/* 
+/*
 Copyright 2012 Kenneth Liu.
 
-This file is part of QuickPocket.
+This file is part of posthoc.
 
-QuickPocket is free software: you can redistribute it and/or modify
+posthoc is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 any later version.
 
-QuickPocket is distributed in the hope that it will be useful,
+posthoc is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with QuickPocket.  If not, see <http://www.gnu.org/licenses/>.
+along with posthoc.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 /* @import url(http://fonts.googleapis.com/css?family=Arimo&subset=latin);
@@ -36,7 +36,7 @@ body {
 #options_footer a:visited { color: black; text-decoration:underline; }
 #options_footer a:hover { color: black; text-decoration:underline; }
 #options_footer a:active { color: black; text-decoration:underline; }
- 
+
 #flash {
 	border-radius: .5em;
 }
@@ -44,12 +44,12 @@ body {
 .flashError {
 	padding: 1em;
 	background-color: Red;
-} 
+}
 
-.flashMessage {          
+.flashMessage {
 	padding: 1em;
 	background-color: LightGreen;
-}                       
+}
 
 #options_header {
 	padding-left: 1em;
@@ -63,12 +63,12 @@ body {
 
 #options_content {
 	border: 1px solid black;
-	padding: 1em;	
+	padding: 1em;
 }
 
 #options_footer {
-	padding: 1em;	
+	padding: 1em;
 	font-size: .75em;
 	background-color: gray;
-}           
-                          
+}
+
