@@ -22,6 +22,7 @@ function addTab() {
 	chrome.tabs.getSelected(null,
 		function(tab) {
 			console.debug(tab);
+			//FIXME this doesn't seem to work
 			if (tab.url == "chrome://newtab/") {
 				console.debug('opening RIL unread page')
 				chrome.tabs.update(tab.id, {url: POCKET_QUEUE});
