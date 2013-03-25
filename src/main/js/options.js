@@ -40,6 +40,7 @@ function saveOptions() {
 
 function loaded(){
     if (!checkFreshInstall()) checkLoginInfo();
+    $('#save-btn').click(saveOptions);
     restoreOptions();
 }
 
@@ -82,3 +83,5 @@ function flashError(message) {
     //TODO corner case - if the green message is already displayed, addClass() doesn't work as expected
     $('#flash').html(message).addClass('flashError').fadeIn(500);
 }
+
+$(loaded);
