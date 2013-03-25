@@ -8,8 +8,8 @@ Steps for release
 1. update gallery-description.txt with changelog
 1. tag git version
 1. push tag to github
-1. push master/branch to github 
-1. create zip file for upload (TODO: automate, zip from tag?) cd src/main; zip -r ../../builds/QuickPocket-0.2.1.zip *
+1. push master/branch to github
+1. create zip file for upload (TODO: automate, zip from tag?) cd src/main; zip -r ../../builds/posthoc-0.2.1.zip *
 1. update description in extensions gallery
 1. create screencast for new features (optional)
 1. upload new extension

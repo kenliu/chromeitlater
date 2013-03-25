@@ -1,6 +1,6 @@
-QuickPocket is an unofficial Chrome Extension for for Pocket (formerly Read it Later).
+posthoc is an unofficial Chrome Extension for for Pocket (formerly Read it Later).
 
-QuickPocket is designed for speed. Save your pages and move on.
+posthoc is designed for speed. Save your pages and move on.
 
 Pocket is a web site that saves pages for you to read later from the same computer or another computer.
 
@@ -11,10 +11,10 @@ This extension features:
 - Save instantly by right-clicking on a page or link
 - View list of recently saved pages
 
-You'll need to set up a Pocket account before using this extension. Once you have an account, set up the Pocket username and password in the extension options screen. (Right-click the blue QuickPocket icon to get to the options screen.)
+You'll need to set up a Pocket account before using this extension. Once you have an account, set up the Pocket username and password in the extension options screen. (Right-click the blue posthoc icon to get to the options screen.)
 
-Please send feedback or support requests to QuickPocket@gmail.com.
+Please send feedback or support requests to posthoc@gmail.com.
 
-Version History:         
-- 0.5 () Updated to support Pocket, renamed to QuickPocket
+Version History:
+- 0.5 () Updated to support Pocket, renamed to posthoc
 - 0.4 (09-14-2011) Renamed to posthoc
