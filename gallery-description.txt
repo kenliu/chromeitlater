@@ -15,6 +15,6 @@ You'll need to set up a Pocket account before using this extension. Once you hav
 
 Please send feedback or support requests to chromeitlater@gmail.com.
 
-Version History:         
-- 0.5 () Updated to support Pocket and Google Extensions manifest v2
+Version History:      
+- 0.5 (03-25-2013) Updated to support Pocket and Google Extensions manifest v2
 - 0.4 (09-14-2011) Renamed to posthoc
