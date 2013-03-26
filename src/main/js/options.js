@@ -1,5 +1,5 @@
 /*
-	Copyright 2012 Kenneth Liu.
+	Copyright 2013 Kenneth Liu.
 
 	This file is part of posthoc.
 
